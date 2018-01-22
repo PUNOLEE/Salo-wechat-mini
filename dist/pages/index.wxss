@@ -1,7 +1,1 @@
-@import "./../npm/wepy-com-toast/toast.wxss";
-@import "./../components/group.wxss";
-@import "./../components/list.wxss";
-@import "./../components/counter.wxss";
-@import "./../components/counter.wxss";
-@import "./../components/panel.wxss";
-.userinfo{display:flex;flex-direction:column;align-items:center}.userinfo-avatar{width:80rpx;height:80rpx;border-radius:50%}.userinfo-nickname{color:#aaa}
+.container._5a3bc22{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;box-sizing:border-box;background-image:url("http://punolee.cn/images/w/1.jpg");background-size:cover}.primary-btn._5a3bc22{width:276rpx;height:92rpx;background-color:rgba(4,0,0,0.56);border-radius:0;font-family:PingFangSC-Regular;font-size:34rpx;font-weight:normal;font-stretch:normal;letter-spacing:0;color:white;line-height:92rpx}.btn-group._5a3bc22{margin-top:418rpx;margin-bottom:32rpx;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-ms-flex:1;flex:1}.navigator-hover._5a3bc22{width:276rpx;height:92rpx;background-color:black;border-radius:0;font-family:PingFangSC-Regular;font-size:34rpx;font-weight:normal;font-stretch:normal;line-height:92rpx;letter-spacing:0;color:white}.btn-font._5a3bc22{padding:0 52rpx}.btn-font-2._5a3bc22{padding:0 68rpx}.home-btn._5a3bc22{margin:auto 20rpx}.logo._5a3bc22{width:412rpx;height:412rpx;margin-top:160rpx}.logan._5a3bc22{margin-bottom:11rpx}.logan p._5a3bc22{margin:0 auto}.footname._5a3bc22{margin-bottom:13rpx}.logan p._5a3bc22,.footname p._5a3bc22{font-family:ArialMT;font-size:22rpx;font-weight:normal;font-stretch:normal;line-height:0;letter-spacing:0;color:#ffffff}.line-css._5a3bc22{width:60%;background:rgba(255,255,255,0.62);height:2rpx}

@@ -1,0 +1,38 @@
+
+  <view class="flow_1 _83c67ff">
+    <image class="logo _83c67ff" src="../assets/images/logo-1.png"/>
+    <form bindreset="formReset" class="formstyle _83c67ff" bindsubmit="formSubmit">
+      <view class="formsection _83c67ff">
+        <view class="forminfo _83c67ff">账号名</view>
+        <input class="inputstyle _83c67ff" name="account_id" placeholder=""/>
+      </view>
+      <view class="formsection _83c67ff">
+        <view class="forminfo _83c67ff">IDKEY</view>
+        <input class="inputstyle _83c67ff" name="idkey" placeholder=""/>
+      </view>
+      <view class="formsection _83c67ff">
+        <view class="forminfo _83c67ff">手机号</view>
+        <input class="inputstyle _83c67ff" name="phone" placeholder=""/>
+      </view>
+      <view class="formsection _83c67ff">
+        <view class="forminfo _83c67ff">验证码</view>
+        <input class="inputstyle code _83c67ff" name="code" placeholder=""/>
+        <button class="code-btn _83c67ff">获取</button>
+      </view>
+      <view class="formsection _83c67ff">
+        <view class="forminfo _83c67ff">密码</view>
+        <input class="inputstyle _83c67ff" type="password" name="password" placeholder=""/>
+      </view>
+      <view class="formsection _83c67ff">
+        <view class="forminfo _83c67ff">确认密码</view>
+        <input class="inputstyle _83c67ff" type="password" name="repassword" placeholder=""/>
+      </view>
+      <view class="formsection _83c67ff">
+        <button formType="submit" class="great-btn _83c67ff">注册</button>
+        <navigator class="outerlink _83c67ff">
+          <font class="more _83c67ff">了解更多</font>IDKEY信息！
+        </navigator>
+      </view>
+    </form>
+
+  </view>
