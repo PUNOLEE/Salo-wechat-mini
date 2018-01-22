@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="11px" viewBox="0 0 7 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>loc</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-169.000000, -138.000000)">
+            <g id="models" transform="translate(0.000000, 83.000000)">
+                <g id="1">
+                    <g id="container" transform="translate(166.000000, 23.000000)">
+                        <g id="loc" transform="translate(3.000000, 32.000000)">
+                            <g id="Group">
+                                <ellipse id="Oval-2" fill="#FBC400" cx="3.5" cy="3.53571429" rx="3.5" ry="3.53571429"></ellipse>
+                                <polygon id="Triangle-2" fill="#FBC400" points="3.5 11 6.49565715 5.5 0.504342854 5.5"></polygon>
+                                <rect id="Rectangle-2" fill="#FFFFFF" x="1.55555556" y="1.57142857" width="3.88888889" height="3.92857143" rx="1.94444444"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
