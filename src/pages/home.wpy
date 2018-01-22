@@ -1,0 +1,23 @@
+<template>
+  <view>
+    <personCard></personCard>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import PersonCard from '../components/personCard'
+export default class Home extends wepy.page {
+  config = {}
+  components = {
+    personCard: PersonCard
+  }
+  data = {}
+  computed = {}
+  methods = {}
+  events = {}
+  onload () {}
+}
+</script>
+<style lang="less">
+
+</style>

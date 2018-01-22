@@ -1,0 +1,108 @@
+<template>
+  <view class="card">
+    <view class="card-avatar">
+
+    </view>
+    <view class="card-profile">
+      <view class="card-profile-line">
+        <view class="card-profile-name">张叉叉</view>
+        <view class="card-profile-sex"></view>
+        <view class="card-profile-rate">评价：
+          <span class="card-profile-star">{{star}}</span>
+        </view>
+      </view>
+      <view class="card-profile-location">上海xx</view>
+      <view class="card-profile-payment">片酬要求：100/小时</view>
+      <view class="card-profile-line">
+        <view class="card-profile-intro">萌妹子啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</view>
+        <view class="card-profile-follow">+ Follow</view>
+      </view>
+      <view class="card-profile-tags">
+        <tagGroup></tagGroup>
+      </view>
+
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import TagGroup from './tagGroup'
+export default class PersonCard extends wepy.component {
+  config = {}
+  components = {
+    tagGroup: TagGroup
+  }
+  data = {
+    rate: 3
+  }
+  computed = {
+    star() {
+      return '★★★★★☆☆☆☆☆'.slice(5 - this.rate, 10 - this.rate)
+    }
+  }
+  methods = {}
+  events = {}
+  onload () {}
+}
+</script>
+<style lang="less" scoped>
+.card {
+  display: flex;
+  justify-content: space-between;
+  padding: 28.96rpx 30.77rpx;
+  &-avatar {
+    width: 230rpx;
+    height: 230rpx;
+    background: #bbb;
+    border-radius: 50%;
+  }
+  &-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 420rpx;
+    font-size: 24.91rpx;
+    &-line {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-name {
+      font-size: 32rpx;
+      line-height: 39.82rpx;
+    }
+    &-location {
+      font-size: 20rpx;
+      margin-top: 10.86rpx;
+      line-height: 28.9855rpx;
+    }
+    &-rate {
+      // font-size: 19.91rpx;
+    }
+    &-star {
+      color: #fbc400;
+    }
+    &-payment {
+      margin-top: 9.06rpx;
+    }
+    &-intro {
+      align-self: flex-end;
+      width: 268.1159rpx;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &-follow {
+      font-size: 20rpx;
+      line-height: 45rpx;
+      text-align: center;
+      color: #979797;
+      width: 110rpx;
+      height: 45rpx;
+      border: solid 1px #969696;
+    }
+    &-tags {
+      margin-top: 16.3043rpx;
+    }
+  }
+}
+</style>
