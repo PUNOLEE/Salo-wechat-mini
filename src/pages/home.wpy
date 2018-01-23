@@ -32,6 +32,7 @@ export default class Home extends wepy.page {
 }
 </script>
 <style lang="less">
+@import url(../assets/main.less);
 .home {
   position: relative;
   box-sizing: border-box;
@@ -41,7 +42,7 @@ export default class Home extends wepy.page {
   &-header {
     z-index: 500;
     position: fixed;
-    background: #fbc400;
+    background: @yellow;
   }
   &-content {
     z-index: 100;

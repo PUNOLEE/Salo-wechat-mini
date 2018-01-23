@@ -46,6 +46,7 @@ export default class PersonCard extends wepy.component {
 }
 </script>
 <style lang="less" scoped>
+@import url(../assets/main.less);
 .card {
   background: #fff;
   margin-top: 20rpx;
@@ -81,7 +82,7 @@ export default class PersonCard extends wepy.component {
       // font-size: 19.91rpx;
     }
     &-star {
-      color: #fbc400;
+      color: @yellow;
     }
     &-payment {
       margin-top: 9.06rpx;
