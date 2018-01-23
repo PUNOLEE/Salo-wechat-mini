@@ -1,6 +1,6 @@
 <template>
   <view class="group">
-    <view wx:for="{{tags}}" class="group-tag">
+    <view wx:key="index" wx:for="{{tags}}" class="group-tag">
       {{item}}
     </view>
   </view>
@@ -8,6 +8,9 @@
 <script>
 import wepy from 'wepy'
 export default class tagGroup extends wepy.component {
+  props = {
+    // tags: Array
+  }
   config = {}
   components = {}
   data = {
