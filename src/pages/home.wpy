@@ -1,0 +1,60 @@
+<template>
+  <view class="home">
+    <mheader class="home-header"></mheader>
+    <scroll-view scroll-y class="home-content">
+      <personCard></personCard>
+      <personCard></personCard>
+      <personCard></personCard>
+      <personCard></personCard>
+      <personCard></personCard>
+      <personCard></personCard>
+    </scroll-view>
+    <mfooter class="home-footer"></mfooter>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import PersonCard from '../components/personCard'
+import Mheader from '../components/mheader'
+import Mfooter from '../components/mfooter'
+export default class Home extends wepy.page {
+  config = {}
+  components = {
+    personCard: PersonCard,
+    mheader: Mheader,
+    mfooter: Mfooter
+  }
+  data = {}
+  computed = {}
+  methods = {}
+  events = {}
+  onload () {}
+}
+</script>
+<style lang="less">
+@import url(../assets/main.less);
+.home {
+  position: relative;
+  box-sizing: border-box;
+  // background: #eee;
+  height: 100%;
+  // padding-top: 126rpx;
+  &-header {
+    z-index: 500;
+    position: fixed;
+    background: @yellow;
+  }
+  &-content {
+    z-index: 100;
+    position: absolute;
+    margin: 96rpx 0 0; //114rpx;
+    padding-bottom: 140rpx;
+    background: #eee;
+  }
+  &-footer {
+    z-index: 500;
+    position: fixed;
+    bottom: 0;
+  }
+}
+</style>

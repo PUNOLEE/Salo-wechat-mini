@@ -5,15 +5,15 @@
       <navigator class="primary-btn home-btn _5a3bc22" url="/pages/signup" redirect="false" hover-class="navigator-hover">
         <view class="btn-font _5a3bc22">我是摄影师</view>
       </navigator>
-      <navigator class="primary-btn home-btn _5a3bc22" url="/pages/signup" redirect="false" hover-class="navigator-hover">
-        <view class="btn-font-2 _5a3bc22">我是模特</view>
+      <navigator class="primary-btn home-btn _4c1d90e" url="/pages/signup" redirect="false" hover-class="navigator-hover">
+        <view class="btn-font-2 _4c1d90e">我是模特</view>
       </navigator>
     </view>
-    <view class="logan _5a3bc22">
-      <p class="_5a3bc22">Find the best photographers and models!</p>
+    <view class="logan _4c1d90e">
+      <p class="_4c1d90e">Find the best photographers and models!</p>
     </view>
-    <view class="line-css _5a3bc22"/>
-    <view class="footname _5a3bc22">
-      <p class="_5a3bc22">Photo by PUNO_</p>
+    <view class="line-css _4c1d90e"/>
+    <view class="footname _4c1d90e">
+      <p class="_4c1d90e">Photo by PUNO_</p>
     </view>
   </view>
