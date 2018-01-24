@@ -9,25 +9,19 @@
 import wepy from 'wepy'
 export default class tagGroup extends wepy.component {
   props = {
-    // tags: Array
+    tags: Array
   }
   config = {}
   components = {}
   data = {
-    tags: [
-      '小清新',
-      '日系',
-      'lo'
-      // '矿业',
-      // '农业',
-      // '畜牧业'
-      // 需要限制长度
-    ]
+
   }
   computed = {}
   methods = {}
   events = {}
-  onload () {}
+  onload () {
+    console.log(this.tags)
+  }
 }
 </script>
 <style lang= "less">

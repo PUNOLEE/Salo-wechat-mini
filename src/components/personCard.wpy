@@ -18,7 +18,7 @@
         <view class="card-profile-follow">+ Follow</view>
       </view>
       <view class="card-profile-tags">
-        <tagGroup></tagGroup>
+        <tagGroup :tags="tags"></tagGroup>
       </view>
 
     </view>
@@ -33,7 +33,16 @@ export default class PersonCard extends wepy.component {
     tagGroup: TagGroup
   }
   data = {
-    rate: 3
+    rate: 3,
+    tags: [
+      '小清新',
+      '日系',
+      'lo'
+      // '矿业',
+      // '农业',
+      // '畜牧业'
+      // 需要限制长度
+    ]
   }
   computed = {
     star() {

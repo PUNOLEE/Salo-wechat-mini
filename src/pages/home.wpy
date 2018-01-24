@@ -36,9 +36,7 @@ export default class Home extends wepy.page {
 .home {
   position: relative;
   box-sizing: border-box;
-  // background: #eee;
   height: 100%;
-  // padding-top: 126rpx;
   &-header {
     z-index: 500;
     position: fixed;
@@ -47,7 +45,7 @@ export default class Home extends wepy.page {
   &-content {
     z-index: 100;
     position: absolute;
-    margin: 96rpx 0 0; //114rpx;
+    margin: 96rpx 0 0;
     padding-bottom: 140rpx;
     background: #eee;
   }
