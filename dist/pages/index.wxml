@@ -1,7 +1,7 @@
 
   <view class="container _5a3bc22">
     <image class="logo _5a3bc22" src="../assets/images/logo.png"/>
-    <view class="btn-group _5a3bc22">
+    <view class="btn-group _5a3bc22" animation="{{animationData}}">
       <navigator class="primary-btn home-btn _5a3bc22" url="/pages/signup" redirect="false" hover-class="navigator-hover">
         <view class="btn-font _5a3bc22">我是摄影师</view>
       </navigator>

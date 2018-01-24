@@ -89,7 +89,7 @@
 <template >
   <view class="container">
     <image class="logo" src="../assets/images/logo.png"></image>
-    <view class="btn-group">
+    <view class="btn-group" animation="{{animationData}}">
       <navigator class="primary-btn home-btn" url="/pages/signup" redirect="false" hover-class="navigator-hover">
         <view class="btn-font">我是摄影师</view>
       </navigator>
@@ -109,5 +109,28 @@
 <script>
   import wepy from 'wepy'
 export default class Salo extends wepy.page {
+    data = {
+      animationData: {}
+    }
+    onLoad() {
+      var animation = wx.createAnimation({
+        duration: 1000,
+        timingFunction: 'ease-in'
+      })
+      this.animation = animation
+
+      // animation.scale(2, 2).rotate(45).step()
+
+      this.setData({
+        animationData: animation.export()
+      })
+
+      setTimeout(function() {
+        // animation.translate(30).step()
+        this.setData({
+          animationData: animation.export()
+        })
+      }.bind(this), 1000)
+    }
 }
 </script>

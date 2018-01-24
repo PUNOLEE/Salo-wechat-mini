@@ -1,0 +1,193 @@
+<style lang="less" scoped>
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-image: url("http://punolee.cn/images/w/signup.png");
+  background-size: cover;
+}
+.more {
+  margin-left: 10rpx;
+  color: #fbc400;
+}
+.text {
+  margin-top: 150rpx;
+  margin-bottom: 50rpx;
+}
+.hello {
+  // margin: 216rpx 0;
+  width: 228px;
+  height: 50rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  display: flex;
+  white-space: pre-line;
+  text-align: center;
+}
+.hello font {
+  white-space: pre-line;
+}
+.tags {
+  margin-bottom: 88rpx;
+}
+.row {
+  display: flex;
+  flex: 1;
+}
+.img {
+  width: 190rpx;
+  height: 190rpx;
+  flex: 0.33;
+  // background-color: #ffffff;
+  margin: 20rpx;
+}
+.t1 {
+  background-image: url("http://punolee.cn/images/w/T1.jpg");
+  background-size: cover;
+}
+.t2 {
+  background-image: url("http://punolee.cn/images/w/T2.jpg");
+  background-size: cover;
+}
+.t3 {
+  background-image: url("http://punolee.cn/images/w/T3.jpg");
+  background-size: cover;
+}
+.t4 {
+  background-image: url("http://punolee.cn/images/w/T4.jpg");
+  background-size: cover;
+}
+.t5 {
+  background-image: url("http://punolee.cn/images/w/T5.jpg");
+  background-size: cover;
+}
+.t6 {
+  background-image: url("http://punolee.cn/images/w/T6.jpg");
+  background-size: cover;
+}
+.t7 {
+  background-image: url("http://punolee.cn/images/w/T7.jpg");
+  background-size: cover;
+}
+.t8 {
+  background-image: url("http://punolee.cn/images/w/T8.jpg");
+  background-size: cover;
+}
+.t9 {
+  background-image: url("http://punolee.cn/images/w/T9.jpg");
+  background-size: cover;
+}
+.t10 {
+  background-image: url("http://punolee.cn/images/w/T10.jpg");
+  background-size: cover;
+}
+.t11 {
+  background-image: url("http://punolee.cn/images/w/T11.jpg");
+  background-size: cover;
+}
+.t13 {
+  background-image: url("http://punolee.cn/images/w/T13.jpg");
+  background-size: cover;
+}
+.footer-s {
+  position: relative;
+  width: 190rpx;
+  margin-top: 150rpx;
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 10px;
+  font-family: PingFangSC-Regular;
+  color: #fcfcfc;
+  background-color: rgba(74, 73, 74, 0.54);
+}
+</style>
+
+<template>
+  <view class="container">
+    <view class="text">
+      <view class="hello">
+        <font>Hi!</font>
+        <font class="more">punolee1122,</font>
+      </view>
+      <view class="hello">
+        <font>选择你的风格标签 </font>
+        <font class="more">(2/4)</font>
+      </view>
+    </view>
+    <view class="tags">
+      <view class="row">
+        <a href="">
+          <view class="img t3">
+            <view class="footer-s">杂志</view>
+          </view>
+        </a>
+        <view class="img t4">
+          <view class="footer-s">淘宝</view>
+        </view>
+        <view class="img t2">
+          <view class="footer-s">日系</view>
+        </view>
+      </view>
+      <view class="row">
+        <view class="img t7">
+          <view class="footer-s">妆面</view>
+        </view>
+        <view class="img t1">
+          <view class="footer-s">复古</view>
+        </view>
+        <view class="img t6">
+          <view class="footer-s">创意</view>
+        </view>
+      </view>
+      <view class="row">
+        <view class="img t8">
+          <view class="footer-s">私房</view>
+        </view>
+        <view class="img t5">
+          <view class="footer-s">黑白</view>
+        </view>
+        <view class="img t13">
+          <view class="footer-s">胶片</view>
+        </view>
+      </view>
+      <view class="row">
+        <view class="img t9">
+          <view class="footer-s">人物</view>
+        </view>
+        <view class="img t10">
+          <view class="footer-s">旅拍</view>
+        </view>
+        <view class="img t11">
+          <view class="footer-s">街拍</view>
+        </view>
+      </view>
+      <view class="row">
+        <view class="img">
+          <view class="footer-s"></view>
+        </view>
+        <view class="img">
+          <view class="footer-s"></view>
+        </view>
+        <view class="img">
+          <view class="footer-s"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class tags extends wepy.page {
+
+}
+</script>
