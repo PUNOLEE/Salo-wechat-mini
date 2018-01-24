@@ -11,62 +11,18 @@
       </view>
     </view>
     <view class="tags _5a7f880">
-      <view class="row _5a7f880">
-        <a href="" class="_5a7f880">
-          <view class="img t3 _5a7f880">
-            <view class="footer-s _5a7f880">杂志</view>
-          </view>
-        </a>
-        <view class="img t4 _5a7f880">
-          <view class="footer-s _5a7f880">淘宝</view>
-        </view>
-        <view class="img t2 _5a7f880">
-          <view class="footer-s _5a7f880">日系</view>
-        </view>
+      <block class="_5a7f880" wx:for="{{tags}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+        <view class="row _5a7f880">
+          
+  <view  wx:for-items="{{item}}" wx:for-item="item" wx:key="index" class=" _5a7f880">
+    <a href="">
+      <view class="img " style="background-image:url({{item.add}})">
+        <view class="img-footer">{{item.name}}</view>
       </view>
-      <view class="row _5a7f880">
-        <view class="img t7 _5a7f880">
-          <view class="footer-s _5a7f880">妆面</view>
+    </a>
+  </view>
+
         </view>
-        <view class="img t1 _5a7f880">
-          <view class="footer-s _5a7f880">复古</view>
-        </view>
-        <view class="img t6 _5a7f880">
-          <view class="footer-s _5a7f880">创意</view>
-        </view>
-      </view>
-      <view class="row _5a7f880">
-        <view class="img t8 _5a7f880">
-          <view class="footer-s _5a7f880">私房</view>
-        </view>
-        <view class="img t5 _5a7f880">
-          <view class="footer-s _5a7f880">黑白</view>
-        </view>
-        <view class="img t13 _5a7f880">
-          <view class="footer-s _5a7f880">胶片</view>
-        </view>
-      </view>
-      <view class="row _5a7f880">
-        <view class="img t9 _5a7f880">
-          <view class="footer-s _5a7f880">人物</view>
-        </view>
-        <view class="img t10 _5a7f880">
-          <view class="footer-s _5a7f880">旅拍</view>
-        </view>
-        <view class="img t11 _5a7f880">
-          <view class="footer-s _5a7f880">街拍</view>
-        </view>
-      </view>
-      <view class="row _5a7f880">
-        <view class="img _5a7f880">
-          <view class="footer-s _5a7f880"/>
-        </view>
-        <view class="img _5a7f880">
-          <view class="footer-s _5a7f880"/>
-        </view>
-        <view class="img _5a7f880">
-          <view class="footer-s _5a7f880"/>
-        </view>
-      </view>
+      </block>
     </view>
   </view>

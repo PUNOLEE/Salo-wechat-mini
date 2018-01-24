@@ -1,5 +1,6 @@
 <style type="less">
-  .group {}
+.group {
+}
 </style>
 <template>
   <view class="group">

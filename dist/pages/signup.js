@@ -38,7 +38,7 @@ var signup = function (_wepy$page) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = signup.__proto__ || Object.getPrototypeOf(signup)).call.apply(_ref, [this].concat(args))), _this), _this.components = {
       toast: _wepyComToast2.default
     }, _this.methods = {
-      formSubmit: function formSubmit(e) { }
+      formSubmit: function formSubmit(e) {}
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 

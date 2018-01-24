@@ -42,73 +42,6 @@
   display: flex;
   flex: 1;
 }
-.img {
-  width: 190rpx;
-  height: 190rpx;
-  flex: 0.33;
-  // background-color: #ffffff;
-  margin: 20rpx;
-}
-.t1 {
-  background-image: url("http://punolee.cn/images/w/T1.jpg");
-  background-size: cover;
-}
-.t2 {
-  background-image: url("http://punolee.cn/images/w/T2.jpg");
-  background-size: cover;
-}
-.t3 {
-  background-image: url("http://punolee.cn/images/w/T3.jpg");
-  background-size: cover;
-}
-.t4 {
-  background-image: url("http://punolee.cn/images/w/T4.jpg");
-  background-size: cover;
-}
-.t5 {
-  background-image: url("http://punolee.cn/images/w/T5.jpg");
-  background-size: cover;
-}
-.t6 {
-  background-image: url("http://punolee.cn/images/w/T6.jpg");
-  background-size: cover;
-}
-.t7 {
-  background-image: url("http://punolee.cn/images/w/T7.jpg");
-  background-size: cover;
-}
-.t8 {
-  background-image: url("http://punolee.cn/images/w/T8.jpg");
-  background-size: cover;
-}
-.t9 {
-  background-image: url("http://punolee.cn/images/w/T9.jpg");
-  background-size: cover;
-}
-.t10 {
-  background-image: url("http://punolee.cn/images/w/T10.jpg");
-  background-size: cover;
-}
-.t11 {
-  background-image: url("http://punolee.cn/images/w/T11.jpg");
-  background-size: cover;
-}
-.t13 {
-  background-image: url("http://punolee.cn/images/w/T13.jpg");
-  background-size: cover;
-}
-.footer-s {
-  position: relative;
-  width: 190rpx;
-  margin-top: 150rpx;
-  text-align: center;
-  height: 40rpx;
-  line-height: 40rpx;
-  font-size: 10px;
-  font-family: PingFangSC-Regular;
-  color: #fcfcfc;
-  background-color: rgba(74, 73, 74, 0.54);
-}
 </style>
 
 <template>
@@ -124,70 +57,39 @@
       </view>
     </view>
     <view class="tags">
-      <view class="row">
-        <a href="">
-          <view class="img t3">
-            <view class="footer-s">杂志</view>
-          </view>
-        </a>
-        <view class="img t4">
-          <view class="footer-s">淘宝</view>
+      <repeat for="{{tags}}" index="index" item="item" key="key">
+        <view class="row">
+          <tag :tagr="item"></tag>
         </view>
-        <view class="img t2">
-          <view class="footer-s">日系</view>
-        </view>
-      </view>
-      <view class="row">
-        <view class="img t7">
-          <view class="footer-s">妆面</view>
-        </view>
-        <view class="img t1">
-          <view class="footer-s">复古</view>
-        </view>
-        <view class="img t6">
-          <view class="footer-s">创意</view>
-        </view>
-      </view>
-      <view class="row">
-        <view class="img t8">
-          <view class="footer-s">私房</view>
-        </view>
-        <view class="img t5">
-          <view class="footer-s">黑白</view>
-        </view>
-        <view class="img t13">
-          <view class="footer-s">胶片</view>
-        </view>
-      </view>
-      <view class="row">
-        <view class="img t9">
-          <view class="footer-s">人物</view>
-        </view>
-        <view class="img t10">
-          <view class="footer-s">旅拍</view>
-        </view>
-        <view class="img t11">
-          <view class="footer-s">街拍</view>
-        </view>
-      </view>
-      <view class="row">
-        <view class="img">
-          <view class="footer-s"></view>
-        </view>
-        <view class="img">
-          <view class="footer-s"></view>
-        </view>
-        <view class="img">
-          <view class="footer-s"></view>
-        </view>
-      </view>
+      </repeat>
     </view>
   </view>
 </template>
 <script>
 import wepy from 'wepy'
+import Tag from '../components/tag'
 
 export default class tags extends wepy.page {
-
+  data = {
+    tags: [
+      [{'name': '杂志', 'add': 'http://punolee.cn/images/w/T3.jpg'},
+        {'name': '淘宝', 'add': 'http://punolee.cn/images/w/T4.jpg'},
+        {'name': '日系', 'add': 'http://punolee.cn/images/w/T2.jpg'}],
+      [{'name': '妆面', 'add': 'http://punolee.cn/images/w/T7.jpg'},
+        {'name': '复古', 'add': 'http://punolee.cn/images/w/T1.jpg'},
+        {'name': '创意', 'add': 'http://punolee.cn/images/w/T6.jpg'} ],
+      [ {'name': '私房', 'add': 'http://punolee.cn/images/w/T8.jpg'},
+        {'name': '黑白', 'add': 'http://punolee.cn/images/w/T5.jpg'},
+        {'name': '胶片', 'add': 'http://punolee.cn/images/w/T13.jpg'}],
+      [ {'name': '人物', 'add': 'http://punolee.cn/images/w/T9.jpg'},
+        {'name': '旅拍', 'add': 'http://punolee.cn/images/w/T10.jpg'},
+        {'name': '街拍', 'add': 'http://punolee.cn/images/w/T11.jpg'}]
+    ]
+  }
+  components ={
+    tag: Tag
+  }
+  onload() {
+  }
 }
 </script>

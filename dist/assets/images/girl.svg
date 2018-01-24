@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="11px" height="10px" viewBox="0 0 11 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
     <title>girl</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="home" transform="translate(-250.000000, -106.000000)">
-            <g id="models" transform="translate(0.000000, 83.000000)">
-                <g id="1">
-                    <g id="container" transform="translate(166.000000, 23.000000)">
-                        <g id="girl" transform="translate(84.000000, 0.000000)">
-                            <path d="M5.83333333,4.16666667 L9.53703704,0.462962963" id="Line" stroke="#FBC400" stroke-width="1" stroke-linecap="square"></path>
-                            <path d="M5.83333333,0.462962963 L9.53703704,4.16666667" id="Line-2" stroke="#FBC400" stroke-width="1" stroke-linecap="square"></path>
-                            <ellipse id="Oval-3" fill="#FBC400" fill-rule="evenodd" cx="3.80220265" cy="6.07148637" rx="3.80220265" ry="3.80091477"></ellipse>
-                            <circle id="Oval-2" fill="#FFFFFF" fill-rule="evenodd" cx="3.7944444" cy="6.01666662" r="2.68333329"></circle>
-                        </g>
-                    </g>
-                </g>
-            </g>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="girl">
+            <path d="M5.25,3.75 L8.58333333,0.416666667" id="Line" stroke="#FBC400" stroke-linecap="square"></path>
+            <path d="M5.25,0.416666667 L8.58333333,3.75" id="Line-2" stroke="#FBC400" stroke-linecap="square"></path>
+            <ellipse id="Oval-3" fill="#FBC400" cx="3.42198238" cy="5.46433773" rx="3.42198238" ry="3.4208233"></ellipse>
+            <circle id="Oval-2" fill="#FFFFFF" cx="3.41499996" cy="5.41499996" r="2.41499996"></circle>
         </g>
     </g>
 </svg>

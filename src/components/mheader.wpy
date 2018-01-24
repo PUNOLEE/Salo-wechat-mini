@@ -24,7 +24,7 @@ export default class mheader extends wepy.component {
 <style lang= "less">
 @import url(../assets/main.less);
 .mheader {
-  /* box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0px -1px 9px rgba(0, 0, 0, 0.2);
   width: 100%;
   display: flex;
   flex-direction: column;
