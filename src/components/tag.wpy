@@ -1,0 +1,46 @@
+<template>
+  <view wx:for-items="{{tagr}}" wx:for-item="item" wx:key="index">
+    <a href="">
+      <view class="img " style="background-image:url({{item.add}})">
+        <view class="img-footer">{{item.name}}</view>
+      </view>
+    </a>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class tag extends wepy.component {
+  props = {
+    tagr: {},
+    idx: {}
+  }
+  data = {
+  }
+  computed = {
+  }
+  onLoad () {
+  }
+}
+</script>
+<style lang="less">
+.img {
+  width: 190rpx;
+  height: 190rpx;
+  flex: 0.33;
+  // background-color: #ffffff;
+  margin: 20rpx;
+  background-size: cover;
+  &-footer {
+    position: relative;
+    width: 190rpx;
+    top: 150rpx;
+    text-align: center;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 10px;
+    font-family: PingFangSC-Regular;
+    color: #fcfcfc;
+    background-color: rgba(74, 73, 74, 0.54);
+  }
+}
+</style>

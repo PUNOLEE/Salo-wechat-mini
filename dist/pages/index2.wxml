@@ -92,8 +92,10 @@
       <block wx:for="{{item.list}}" wx:for-index="$group$index" wx:for-item="$group$item" wx:key="$group$key">
         
   <view class="groupitem">
-    --<text class="id">{{$group$item.childid}}.</text>
-    <text class="name" bindtap="$group$groupitem$tap" data-com-index="{{index}}-{{$group$index}}"> {{$group$item.childname}}</text>
+    --
+    <view style="width:50rpx;height:50rpx;background:red;"/>
+    <!-- <text class="id">{{gitem}}</text> -->
+    <!-- <text class="name" bindtap="tap"> {{gitem.childname}}</text> -->
   </view>
 
       </block>

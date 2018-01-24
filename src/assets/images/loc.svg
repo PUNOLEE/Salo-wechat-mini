@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="14px" viewBox="0 0 9 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>loc</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="loc">
+            <g id="Group">
+                <circle id="Oval-2" fill="#FBC400" cx="4.5" cy="4.5" r="4.5"></circle>
+                <polygon id="Triangle-2" fill="#FBC400" points="4.5 14 8.35155919 7 0.648440812 7"></polygon>
+                <rect id="Rectangle-2" fill="#FFFFFF" x="2" y="2" width="5" height="5" rx="2.5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

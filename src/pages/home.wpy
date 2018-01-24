@@ -18,7 +18,9 @@ import PersonCard from '../components/personCard'
 import Mheader from '../components/mheader'
 import Mfooter from '../components/mfooter'
 export default class Home extends wepy.page {
-  config = {}
+  config = {
+    navigationBarBackgroundColor: '#fbc400'
+  }
   components = {
     personCard: PersonCard,
     mheader: Mheader,
@@ -28,7 +30,7 @@ export default class Home extends wepy.page {
   computed = {}
   methods = {}
   events = {}
-  onload () {}
+  onLoad () { }
 }
 </script>
 <style lang="less">
@@ -40,7 +42,7 @@ export default class Home extends wepy.page {
   &-header {
     z-index: 500;
     position: fixed;
-    background: @yellow;
+    background: #fff;
   }
   &-content {
     z-index: 100;

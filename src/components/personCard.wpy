@@ -5,13 +5,19 @@
     </view>
     <view class="card-profile">
       <view class="card-profile-line">
-        <view class="card-profile-name">张叉叉</view>
-        <view class="card-profile-sex"></view>
+        <view class="card-profile-name">张叉叉
+
+        </view>
+        <view class="card-profile-sex">
+          <image src="../assets/images/girl.svg" class="card-profile-icon-img" />
+        </view>
         <view class="card-profile-rate">评价：
           <span class="card-profile-star">{{star}}</span>
+          <span class="card-profile-counter">({{counter}})</span>
         </view>
       </view>
-      <view class="card-profile-location">上海xx</view>
+      <view class="card-profile-location">
+        <image src="../assets/images/loc.svg" class="card-profile-icon-img" />上海xx</view>
       <view class="card-profile-payment">片酬要求：100/小时</view>
       <view class="card-profile-line">
         <view class="card-profile-intro">萌妹子啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</view>
@@ -47,6 +53,9 @@ export default class PersonCard extends wepy.component {
   computed = {
     star() {
       return '★★★★★☆☆☆☆☆'.slice(5 - this.rate, 10 - this.rate)
+    },
+    counter() {
+      return '3' + '/' + '6'
     }
   }
   methods = {}
@@ -87,6 +96,18 @@ export default class PersonCard extends wepy.component {
       margin-top: 10.86rpx;
       line-height: 28.9855rpx;
     }
+    &-sex {
+      // margin-right: 16%;
+    }
+    &-icon-img {
+      width: 20rpx;
+      height: 20rpx;
+    }
+    &-counter {
+      margin-left: 10rpx;
+      font-size: 20rpx;
+      color: @grey;
+    }
     &-rate {
       // font-size: 19.91rpx;
     }
@@ -102,15 +123,16 @@ export default class PersonCard extends wepy.component {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      color: @grey-bold;
     }
     &-follow {
       font-size: 20rpx;
       line-height: 45rpx;
       text-align: center;
-      color: #979797;
+      color: @grey;
       width: 110rpx;
       height: 45rpx;
-      border: solid 1px #969696;
+      border: solid 1px @grey-bold;
     }
     &-tags {
       margin-top: 16.3043rpx;

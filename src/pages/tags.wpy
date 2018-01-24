@@ -1,0 +1,95 @@
+<style lang="less" scoped>
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-image: url("http://punolee.cn/images/w/signup.png");
+  background-size: cover;
+}
+.more {
+  margin-left: 10rpx;
+  color: #fbc400;
+}
+.text {
+  margin-top: 150rpx;
+  margin-bottom: 50rpx;
+}
+.hello {
+  // margin: 216rpx 0;
+  width: 228px;
+  height: 50rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  display: flex;
+  white-space: pre-line;
+  text-align: center;
+}
+.hello font {
+  white-space: pre-line;
+}
+.tags {
+  margin-bottom: 88rpx;
+}
+.row {
+  display: flex;
+  flex: 1;
+}
+</style>
+
+<template>
+  <view class="container">
+    <view class="text">
+      <view class="hello">
+        <font>Hi!</font>
+        <font class="more">punolee1122,</font>
+      </view>
+      <view class="hello">
+        <font>选择你的风格标签 </font>
+        <font class="more">(2/4)</font>
+      </view>
+    </view>
+    <view class="tags">
+      <repeat for="{{tags}}" index="index" item="item" key="key">
+        <view class="row">
+          <tag :tagr="item"></tag>
+        </view>
+      </repeat>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import Tag from '../components/tag'
+
+export default class tags extends wepy.page {
+  data = {
+    tags: [
+      [{'name': '杂志', 'add': 'http://punolee.cn/images/w/T3.jpg'},
+        {'name': '淘宝', 'add': 'http://punolee.cn/images/w/T4.jpg'},
+        {'name': '日系', 'add': 'http://punolee.cn/images/w/T2.jpg'}],
+      [{'name': '妆面', 'add': 'http://punolee.cn/images/w/T7.jpg'},
+        {'name': '复古', 'add': 'http://punolee.cn/images/w/T1.jpg'},
+        {'name': '创意', 'add': 'http://punolee.cn/images/w/T6.jpg'} ],
+      [ {'name': '私房', 'add': 'http://punolee.cn/images/w/T8.jpg'},
+        {'name': '黑白', 'add': 'http://punolee.cn/images/w/T5.jpg'},
+        {'name': '胶片', 'add': 'http://punolee.cn/images/w/T13.jpg'}],
+      [ {'name': '人物', 'add': 'http://punolee.cn/images/w/T9.jpg'},
+        {'name': '旅拍', 'add': 'http://punolee.cn/images/w/T10.jpg'},
+        {'name': '街拍', 'add': 'http://punolee.cn/images/w/T11.jpg'}]
+    ]
+  }
+  components ={
+    tag: Tag
+  }
+  onload() {
+  }
+}
+</script>
