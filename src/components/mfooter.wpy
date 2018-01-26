@@ -1,7 +1,9 @@
 <template>
   <view class="mfooter">
     <view class="mfooter-view">浏览</view>
-    <view class="m-footer-icon">icon</view>
+    <view class="mfooter-icon">
+      <image src="../assets/images/logo2.svg" class="mfooter-icon-image" />
+    </view>
     <view class="mfooter-person">个人中心</view>
   </view>
 </template>
@@ -31,7 +33,12 @@ export default class mfooter extends wepy.component {
   font-size: 28.9855rpx;
   font-family: PingFangSC-Medium;
   box-shadow: 0px -1px 9px rgba(0, 0, 0, 0.2);
-  &-view {
+  &-icon {
+    margin-top: 8rpx;
+    &-image {
+      width: 100rpx;
+      height: 100rpx;
+    }
   }
 }
 </style>

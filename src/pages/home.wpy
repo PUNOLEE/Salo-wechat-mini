@@ -2,7 +2,9 @@
   <view class="home">
     <mheader class="home-header"></mheader>
     <scroll-view scroll-y class="home-content">
-      <personCard></personCard>
+      <navigator url="view">
+        <personCard></personCard>
+      </navigator>
       <personCard></personCard>
       <personCard></personCard>
       <personCard></personCard>
