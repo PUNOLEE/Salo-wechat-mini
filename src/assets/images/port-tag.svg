@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="79px" height="26px" viewBox="0 0 79 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>标签</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-9.7%" y="-26.3%" width="119.4%" height="173.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M71.3272842,1 L71.3614647,0.960272527 L71.3614647,18.9527422 L71.3558187,18.9461799 L71.3558187,19 L0,19 L0,1 L71.3272842,1 Z M71.3272842,1 L63.6213442,9.95650738 L71.3558187,18.9461799 L71.3558187,1 L71.3272842,1 Z" id="path-2"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="view" transform="translate(-12.000000, -611.000000)">
+            <g id="pic" transform="translate(16.000000, 612.000000)">
+                <g id="标签" filter="url(#filter-1)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Combined-Shape" fill="#FBC400" xlink:href="#path-2"></use>
+                    <text id="近期作品" mask="url(#mask-3)" font-family="PingFangSC-Medium, PingFang SC" font-size="9" font-weight="400" letter-spacing="4.30000019" fill="#FFFFFF">
+                        <tspan x="9" y="13">近期作</tspan>
+                        <tspan x="48.9000006" y="13">品</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

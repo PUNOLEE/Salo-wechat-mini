@@ -202,17 +202,14 @@ export default class signup extends wepy.page {
     },
     question: function() {
       this.hidden = !this.hidden
-      console.log(this.hidden)
     },
     close: function() {
       this.hidden = true
-      console.log(this.hidden)
     }
   }
   onLoad(options) {
     this.hidden = true
     this.type = options.ty
-    console.log(this.type)
   }
 }
 </script>
