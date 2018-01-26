@@ -1,4 +1,6 @@
-<style lang="less" scoped>
+<style lang="less">
+@import url(../assets/main.less);
+
 .flow_1 {
   height: 100%;
   display: flex;
@@ -14,35 +16,39 @@
   height: 242rpx;
   margin-top: 60rpx;
 }
-.formsection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  margin-bottom: 40rpx;
-}
-.formstyle {
+.form {
   margin-top: 75rpx;
-  margin-bottom: 45rpx;
-}
-.forminfo {
-  width: 136rpx;
-  height: 72rpx;
-  font-family: PingFangSC-Regular;
   font-size: 26rpx;
-  font-weight: normal;
-  font-stretch: normal;
-  line-height: 72rpx;
-  letter-spacing: 0px;
-  color: #ffffff;
-}
-.inputstyle {
-  width: 434rpx;
-  height: 72rpx;
-  background-color: rgba(255, 255, 255, 0.95);
-  border: solid 2rpx #000000;
+  margin-bottom: 45rpx;
+  &-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-bottom: 40rpx;
+  }
+  &-info {
+    width: 136rpx;
+    height: 72rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 72rpx;
+    letter-spacing: 0px;
+    color: #ffffff;
+  }
+  &-input {
+    width: 434rpx;
+    height: 72rpx;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: solid 2rpx #000000;
+  }
+  &-span {
+    color: @yellow;
+    float: right;
+  }
 }
 .code {
   width: 256rpx;
@@ -50,7 +56,7 @@
 .code-btn {
   width: 154rpx;
   height: 72rpx;
-  background-color: #fbc400;
+  background-color: @yellow;
   color: white;
   font-size: 26rpx;
   font-weight: normal;
@@ -64,7 +70,7 @@
 .great-btn {
   width: 224rpx;
   height: 82rpx;
-  background-color: #fbc400;
+  background-color: @yellow;
   font-family: PingFangSC-Semibold;
   font-size: 32rpx;
   font-weight: normal;
@@ -86,39 +92,42 @@
   color: white;
 }
 .more {
-  color: #fbc400;
+  color: @yellow;
 }
 </style>
 <template>
   <view class="flow_1">
     <image class="logo" src="../assets/images/logo-1.png"></image>
-    <form @reset="formReset" class="formstyle" bindsubmit="formSubmit">
-      <view class="formsection">
-        <view class="forminfo">账号名</view>
-        <input class="inputstyle" name="account_id" placeholder="" />
+    <form @reset="formReset" class="form" bindsubmit="formSubmit">
+      <view class="form-section">
+        <view class="form-info">账号名</view>
+        <input class="form-input" name="account_id" placeholder="" />
       </view>
-      <view class="formsection">
-        <view class="forminfo">IDKEY</view>
-        <input class="inputstyle" name="idkey" placeholder="" />
+      <view class="form-section">
+        <view class="form-info">IDKEY</view>
+        <input class="form-input" name="idkey" placeholder="" />
       </view>
-      <view class="formsection">
-        <view class="forminfo">手机号</view>
-        <input class="inputstyle" name="phone" placeholder="" />
+      <view class="form-section">
+        <view class="form-info">手机号</view>
+        <input class="form-input" name="phone" placeholder="" />
       </view>
-      <view class="formsection">
-        <view class="forminfo">验证码</view>
-        <input class="inputstyle code" name="code" placeholder="" />
+      <view class="form-section">
+        <view class="form-info">验证码</view>
+        <input class="form-input code" name="code" placeholder="" />
         <button class="code-btn">获取</button>
       </view>
-      <view class="formsection">
-        <view class="forminfo">密码</view>
-        <input class="inputstyle" type="password" name="password" placeholder="" />
+      <view class="form-section">
+        <view class="form-info">密码</view>
+        <input class="form-input" type="password" name="password" placeholder="" />
       </view>
-      <view class="formsection">
-        <view class="forminfo">确认密码</view>
-        <input class="inputstyle" type="password" name="repassword" placeholder="" />
+      <view class="form-section">
+        <view class="form-info">确认密码</view>
+        <input class="form-input" type="password" name="repassword" placeholder="" />
       </view>
-      <view class="formsection">
+      <view class="form-section">
+        <span class="form-span">{{tip}}</span>
+      </view>
+      <view class="form-section">
         <button formType="submit" class="great-btn">注册</button>
         <navigator class="outerlink">
           <font class="more">了解更多</font>IDKEY信息！
@@ -134,12 +143,29 @@ import wepy from 'wepy'
 import Toast from 'wepy-com-toast'
 
 export default class signup extends wepy.page {
+  data = {
+    tip: ''
+  }
   components = {
     toast: Toast
   }
   methods = {
     formSubmit: function(e) {
-
+      if (e.detail.value.account_id.length === 0 || e.detail.value.idkey.length === 0 || e.detail.value.password.length === 0) {
+        this.tip = '账号名、IDKEY和密码不能为空！'
+      } else if (e.detail.value.phone.length === 0) {
+        this.tip = '手机号不能为空！'
+      } else if (e.detail.value.password !== e.detail.value.repassword) {
+        this.tip = '两次输入密码不同！'
+      } else {
+        // 验证码验证
+        this.tip = ''
+        console.log('成功')
+        // request + idkey 验证
+        wx.redirectTo({
+          url: 'tags?acc=' + e.detail.value.account_id
+        })
+      }
     }
   }
 }

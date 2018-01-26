@@ -1,17 +1,12 @@
-<style lang="less" scoped>
+<style lang="less">
+@import url(../assets/main.less);
+
 .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
   background-image: url("http://punolee.cn/images/w/signup.png");
-  background-size: cover;
 }
 .more {
   margin-left: 10rpx;
-  color: #fbc400;
+  color: @yellow;
 }
 .text {
   margin-top: 150rpx;
@@ -41,6 +36,49 @@
 .row {
   display: flex;
   flex: 1;
+  flex-wrap: wrap;
+  margin: auto 0;
+  justify-content: center;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  // flex: 0.33;
+  // background-color: #ffffff;
+  // margin: 20rpx;
+  background-size: cover;
+  &-footer {
+    position: relative;
+    width: 100%;
+    top: 150rpx;
+    text-align: center;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 10px;
+    font-family: PingFangSC-Regular;
+    color: #fcfcfc;
+    background-color: rgba(74, 73, 74, 0.54);
+  }
+}
+.box {
+  width: 190rpx;
+  height: 190rpx;
+  margin: 20rpx;
+}
+.color {
+  display: block;
+  height: 100%;
+}
+.is-checked {
+  border: 2px solid @yellow;
+
+  // background-image: url("http://punolee.cn/images/w/mask.svg");
+  background-color: #f0bb00;
+  // -webkit-mask-image: url(http://punolee.cn/images/w/mask.png), skyblue);
+  // mask-image: url("http://punolee.cn/images/w/mask.svg");
+  // -webkit-filter: Alpha(Opacity=60);
+  opacity: 0.8;
+  text-decoration: none;
 }
 </style>
 
@@ -49,47 +87,89 @@
     <view class="text">
       <view class="hello">
         <font>Hi!</font>
-        <font class="more">punolee1122,</font>
+        <font class="more">{{account_name}},</font>
       </view>
       <view class="hello">
         <font>选择你的风格标签 </font>
-        <font class="more">(2/4)</font>
+        <font class="more">({{counter}}/4)</font>
       </view>
     </view>
     <view class="tags">
-      <repeat for="{{tags}}" index="index" item="item" key="key">
-        <view class="row">
-          <tag :tagr="item"></tag>
-        </view>
-      </repeat>
+      <!-- <repeat for="{{tags}}" index="index" item="item" key="key"> -->
+      <view class="row">
+        <repeat for="{{tag}}" item="tagitem" key="idx" index="idx">
+          <view class="box">
+            <a data-ind="{{idx}}" class="color {{tag[idx].type == 'selected' ? 'is-checked' : ''}}" @tap="colorSelect">
+              <view class="img " style="background-image:url({{tagitem.add}}) ">
+                <view class="img-footer ">{{tagitem.name}}</view>
+              </view>
+            </a>
+          </view>
+        </repeat>
+      </view>
+      <!-- </repeat> -->
     </view>
   </view>
 </template>
 <script>
 import wepy from 'wepy'
-import Tag from '../components/tag'
 
 export default class tags extends wepy.page {
   data = {
-    tags: [
-      [{'name': '杂志', 'add': 'http://punolee.cn/images/w/T3.jpg'},
-        {'name': '淘宝', 'add': 'http://punolee.cn/images/w/T4.jpg'},
-        {'name': '日系', 'add': 'http://punolee.cn/images/w/T2.jpg'}],
-      [{'name': '妆面', 'add': 'http://punolee.cn/images/w/T7.jpg'},
-        {'name': '复古', 'add': 'http://punolee.cn/images/w/T1.jpg'},
-        {'name': '创意', 'add': 'http://punolee.cn/images/w/T6.jpg'} ],
-      [ {'name': '私房', 'add': 'http://punolee.cn/images/w/T8.jpg'},
-        {'name': '黑白', 'add': 'http://punolee.cn/images/w/T5.jpg'},
-        {'name': '胶片', 'add': 'http://punolee.cn/images/w/T13.jpg'}],
-      [ {'name': '人物', 'add': 'http://punolee.cn/images/w/T9.jpg'},
-        {'name': '旅拍', 'add': 'http://punolee.cn/images/w/T10.jpg'},
-        {'name': '街拍', 'add': 'http://punolee.cn/images/w/T11.jpg'}]
-    ]
+    tag: [
+        {'id': 1, 'name': '杂志', 'add': 'http://punolee.cn/images/w/T3.jpg', 'type': 'unselected'},
+        {'id': 2, 'name': '淘宝', 'add': 'http://punolee.cn/images/w/T4.jpg', 'type': 'unselected'},
+        {'id': 3, 'name': '日系', 'add': 'http://punolee.cn/images/w/T2.jpg', 'type': 'unselected'},
+        {'id': 4, 'name': '妆面', 'add': 'http://punolee.cn/images/w/T7.jpg', 'type': 'unselected'},
+        {'id': 5, 'name': '复古', 'add': 'http://punolee.cn/images/w/T1.jpg', 'type': 'unselected'},
+        {'id': 6, 'name': '创意', 'add': 'http://punolee.cn/images/w/T6.jpg', 'type': 'unselected'},
+        {'id': 7, 'name': '私房', 'add': 'http://punolee.cn/images/w/T8.jpg', 'type': 'unselected'},
+        {'id': 8, 'name': '黑白', 'add': 'http://punolee.cn/images/w/T5.jpg', 'type': 'unselected'},
+        {'id': 9, 'name': '胶片', 'add': 'http://punolee.cn/images/w/T13.jpg', 'type': 'unselected'},
+        {'id': 10, 'name': '人物', 'add': 'http://punolee.cn/images/w/T9.jpg', 'type': 'unselected'},
+        {'id': 11, 'name': '旅拍', 'add': 'http://punolee.cn/images/w/T10.jpg', 'type': 'unselected'},
+        {'id': 12, 'name': '街拍', 'add': 'http://punolee.cn/images/w/T11.jpg', 'type': 'unselected'}
+    ],
+    store: [],
+    account_name: ''
   }
-  components ={
-    tag: Tag
+  methods = {
+    colorSelect: function (e) {
+      var ind = parseInt(e.currentTarget.dataset.ind)
+      var type = this.data.tag[ind].type
+      var tag = this.data.tag
+
+      if (type === 'unselected') {
+        tag[ind].type = 'selected'
+      } else {
+        tag[ind].type = 'unselected'
+      }
+
+      this.setData({
+        tag: tag
+      })
+      var store = []
+      for (let i = 0; i < tag.length; i++) {
+        if (tag[i].type === 'selected') {
+          store.push(tag[i].name)
+        }
+      }
+      this.store = store
+      if (this.store.length === 4) {
+        // submit form , need id
+        wx.redirectTo({
+          url: 'home'
+        })
+      }
+    }
   }
-  onload() {
+  onLoad(options) {
+    this.account_name = options.acc
+  }
+  computed = {
+    counter() {
+      return this.store.length === 0 ? 0 : this.store.length
+    }
   }
 }
 </script>

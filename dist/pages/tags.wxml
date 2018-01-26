@@ -1,28 +1,28 @@
 
-  <view class="container _5a7f880">
-    <view class="text _5a7f880">
-      <view class="hello _5a7f880">
-        <font class="_5a7f880">Hi!</font>
-        <font class="more _5a7f880">punolee1122,</font>
+  <view class="container">
+    <view class="text">
+      <view class="hello">
+        <font>Hi!</font>
+        <font class="more">{{account_name}},</font>
       </view>
-      <view class="hello _5a7f880">
-        <font class="_5a7f880">选择你的风格标签 </font>
-        <font class="more _5a7f880">(2/4)</font>
+      <view class="hello">
+        <font>选择你的风格标签 </font>
+        <font class="more">({{counter}}/4)</font>
       </view>
     </view>
-    <view class="tags _5a7f880">
-      <block class="_5a7f880" wx:for="{{tags}}" wx:for-index="index" wx:for-item="item" wx:key="key">
-        <view class="row _5a7f880">
-          
-  <view  wx:for-items="{{item}}" wx:for-item="item" wx:key="index" class=" _5a7f880">
-    <a href="">
-      <view class="img " style="background-image:url({{item.add}})">
-        <view class="img-footer">{{item.name}}</view>
+    <view class="tags">
+      <!-- <repeat for="{{tags}}" index="index" item="item" key="key"> -->
+      <view class="row">
+        <block wx:for="{{tag}}" wx:for-index="idx" wx:for-item="tagitem" wx:key="idx">
+          <view class="box">
+            <a data-ind="{{idx}}" class="color {{tag[idx].type == 'selected' ? 'is-checked' : ''}}" bindtap="colorSelect">
+              <view class="img " style="background-image:url({{tagitem.add}}) ">
+                <view class="img-footer ">{{tagitem.name}}</view>
+              </view>
+            </a>
+          </view>
+        </block>
       </view>
-    </a>
-  </view>
-
-        </view>
-      </block>
+      <!-- </repeat> -->
     </view>
   </view>
