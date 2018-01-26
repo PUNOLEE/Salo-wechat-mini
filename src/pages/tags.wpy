@@ -71,13 +71,8 @@
 }
 .is-checked {
   border: 2px solid @yellow;
-
-  // background-image: url("http://punolee.cn/images/w/mask.svg");
   background-color: #f0bb00;
-  // -webkit-mask-image: url(http://punolee.cn/images/w/mask.png), skyblue);
-  // mask-image: url("http://punolee.cn/images/w/mask.svg");
-  // -webkit-filter: Alpha(Opacity=60);
-  opacity: 0.8;
+  filter: brightness(0.7);
   text-decoration: none;
 }
 </style>
