@@ -1,15 +1,8 @@
 <style lang="less">
 @import url(../assets/main.less);
 
-.flow_1 {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
+.container {
   background-image: url("http://punolee.cn/images/w/signup.png");
-  background-size: cover;
 }
 .logo {
   width: 242rpx;
@@ -39,6 +32,12 @@
     letter-spacing: 0px;
     color: #ffffff;
   }
+  &-q {
+    width: 39rpx;
+    height: 39rpx;
+    margin: auto 0;
+    margin-left: 14rpx;
+  }
   &-input {
     width: 434rpx;
     height: 72rpx;
@@ -49,6 +48,36 @@
     color: @yellow;
     float: right;
   }
+}
+.tooltip {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 20rpx;
+  background-color: @yellow;
+  position: absolute;
+  right: 65rpx;
+  z-index: 2;
+  color: #fff;
+  font-size: 16rpx;
+  box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(0, 0, 0, 0.5);
+  top: 505rpx;
+}
+.tooltip p {
+  padding: 36rpx 18rpx 18rpx 26rpx;
+  position: absolute;
+}
+.close {
+  color: #fff;
+  font-size: 30rpx;
+  position: absolute;
+  margin-top: -33rpx;
+  margin-left: 87rpx;
+}
+.is-hidden {
+  visibility: hidden;
+}
+.is-show {
+  visibility: visible;
 }
 .code {
   width: 256rpx;
@@ -64,7 +93,6 @@
   line-height: 72rpx;
   border-radius: 0;
   margin-left: 22rpx;
-
   letter-spacing: 0px;
 }
 .great-btn {
@@ -96,7 +124,7 @@
 }
 </style>
 <template>
-  <view class="flow_1">
+  <view class="container">
     <image class="logo" src="../assets/images/logo-1.png"></image>
     <form @reset="formReset" class="form" bindsubmit="formSubmit">
       <view class="form-section">
@@ -106,6 +134,11 @@
       <view class="form-section">
         <view class="form-info">IDKEY</view>
         <input class="form-input" name="idkey" placeholder="" />
+        <image src="../assets/images/tip.svg" class="form-q " @tap="question"></image>
+      </view>
+      <view class="tooltip {{hidden ? 'is-hidden' : 'is-show'}}">
+        <p @tap="close">
+          <font class="close" @tap="close">?</font>只有资格调查审核合格的摄影师和模特才可以注册</p>
       </view>
       <view class="form-section">
         <view class="form-info">手机号</view>
@@ -140,14 +173,14 @@
 
 <script>
 import wepy from 'wepy'
-import Toast from 'wepy-com-toast'
 
 export default class signup extends wepy.page {
   data = {
-    tip: ''
+    tip: '',
+    type: 0,
+    hidden: true
   }
   components = {
-    toast: Toast
   }
   methods = {
     formSubmit: function(e) {
@@ -166,7 +199,20 @@ export default class signup extends wepy.page {
           url: 'tags?acc=' + e.detail.value.account_id
         })
       }
+    },
+    question: function() {
+      this.hidden = !this.hidden
+      console.log(this.hidden)
+    },
+    close: function() {
+      this.hidden = true
+      console.log(this.hidden)
     }
+  }
+  onLoad(options) {
+    this.hidden = true
+    this.type = options.ty
+    console.log(this.type)
   }
 }
 </script>

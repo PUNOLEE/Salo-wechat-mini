@@ -1,19 +1,19 @@
 
-  <view class="container _5a3bc22">
-    <image class="logo _5a3bc22" src="../assets/images/logo.png"/>
-    <view class="btn-group _5a3bc22" animation="{{animationData}}">
-      <navigator class="primary-btn home-btn _5a3bc22" url="/pages/signup" redirect="false" hover-class="navigator-hover">
-        <view class="btn-font _5a3bc22">我是摄影师</view>
+  <view class="container">
+    <image class="logo" src="../assets/images/logo.png"/>
+    <view class="btn-group" animation="{{animationData}}">
+      <navigator class="primary-btn home-btn" url="/pages/signup?ty=0" redirect="false" hover-class="navigator-hover">
+        <view class="btn-font">我是摄影师</view>
       </navigator>
-      <navigator class="primary-btn home-btn _5a3bc22" url="/pages/signup" redirect="false" hover-class="navigator-hover">
-        <view class="btn-font-2 _5a3bc22">我是模特</view>
+      <navigator class="primary-btn home-btn" url="/pages/signup?ty=1" redirect="false" hover-class="navigator-hover">
+        <view class="btn-font-2">我是模特</view>
       </navigator>
     </view>
-    <view class="logan _5a3bc22">
-      <p class="_5a3bc22">Find the best photographers and models!</p>
+    <view class="logan">
+      <p>Find the best photographers and models!</p>
     </view>
-    <view class="line-css _5a3bc22"/>
-    <view class="footname _5a3bc22">
-      <p class="_5a3bc22">Photo by PUNO_</p>
+    <view class="line-css"/>
+    <view class="footname">
+      <p>Photo by PUNO_</p>
     </view>
   </view>

@@ -1,13 +1,8 @@
-<style lang="less" scoped>
+<style lang="less">
+@import url(../assets/main.less);
+
 .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
   background-image: url("http://punolee.cn/images/w/1.jpg");
-  background-size: cover;
 }
 .primary-btn {
   width: 276rpx;
@@ -90,10 +85,10 @@
   <view class="container">
     <image class="logo" src="../assets/images/logo.png"></image>
     <view class="btn-group" animation="{{animationData}}">
-      <navigator class="primary-btn home-btn" url="/pages/signup" redirect="false" hover-class="navigator-hover">
+      <navigator class="primary-btn home-btn" url="/pages/signup?ty=0" redirect="false" hover-class="navigator-hover">
         <view class="btn-font">我是摄影师</view>
       </navigator>
-      <navigator class="primary-btn home-btn" url="/pages/signup" redirect="false" hover-class="navigator-hover">
+      <navigator class="primary-btn home-btn" url="/pages/signup?ty=1" redirect="false" hover-class="navigator-hover">
         <view class="btn-font-2">我是模特</view>
       </navigator>
     </view>
