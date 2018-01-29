@@ -147,7 +147,7 @@
     &-container {
       margin-left: 23rpx;
       font-size: 20rpx;
-      width: 400rpx;
+      width: 390rpx;
       background-image: url("http://punolee.cn/images/w/comment.svg");
       background-size: cover;
       border-radius: 10rpx;
