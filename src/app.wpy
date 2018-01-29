@@ -8,10 +8,11 @@ export default class extends wepy.app {
     pages: [
       'pages/home',
       'pages/personal',
-      // 'pages/index',
       'pages/signup',
-      'pages/tags'
-      // 'pages/home'
+      'pages/index',
+      'pages/signup',
+      'pages/tags',
+      'pages/view'
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -1,0 +1,289 @@
+<style lang="less">
+@import url(../assets/main.less);
+.all {
+  background-image: url("http://punolee.cn/images/w/signup.png");
+  background-size: contain;
+  height: 100%;
+}
+.view {
+  background-image: url("http://punolee.cn/images/w/me.jpg");
+  width: 100%;
+  height: 700rpx;
+  background-position: center;
+}
+.card {
+  width: 99%;
+  height: 556rpx;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 87rpx;
+  position: absolute;
+  top: 650rpx;
+  box-shadow: 0rpx -14rpx 62rpx 15rpx rgba(0, 0, 0, 0.35);
+
+  &-mask {
+    width: 100%;
+    height: 202rpx;
+    background-color: #eaeaea;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 87rpx;
+    border-bottom-right-radius: 87rpx;
+  }
+  &-avatar {
+    width: 242rpx;
+    height: 242rpx;
+    border-radius: 200rpx;
+    position: absolute;
+    top: -121rpx;
+    left: 50%;
+    margin-left: -121rpx;
+  }
+  &-icon {
+    &-robot {
+      width: 38rpx;
+      height: 38rpx;
+      margin-left: 100rpx;
+      margin-top: 18rpx;
+      position: absolute;
+    }
+    &-heart {
+      width: 38rpx;
+      height: 38rpx;
+      right: 126rpx;
+      margin-top: 18rpx;
+      position: absolute;
+    }
+    &-calendar {
+      width: 38rpx;
+      height: 38rpx;
+      right: 76rpx;
+      margin-top: 18rpx;
+      position: absolute;
+    }
+  }
+
+  &-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 420rpx;
+    font-size: 24.91rpx;
+    margin: 0 auto;
+    margin-top: 121rpx;
+    text-align: center;
+
+    &-line {
+      display: flex;
+      margin: 8rpx 0;
+      justify-content: space-between;
+    }
+    &-name {
+      font-size: 32rpx;
+      margin: 0 auto;
+      line-height: 39.82rpx;
+    }
+    &-location {
+      margin-top: 10.86rpx;
+      line-height: 28.9855rpx;
+    }
+    &-icon-img {
+      width: 20rpx;
+      height: 20rpx;
+    }
+    &-payment {
+      margin-top: 9.06rpx;
+    }
+    &-intro {
+      align-self: flex-end;
+      width: 268.1159rpx;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: @grey-bold;
+      margin: 0 auto;
+    }
+    &-tags {
+      margin: 0 auto;
+      margin-top: 6rpx;
+    }
+  }
+}
+.comment {
+  width: 576rpx;
+  height: 146rpx;
+  font-size: 24.91rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  &-more {
+    margin: 8rpx 0;
+    font-size: 20rpx;
+    color: @grey-bold;
+    text-align: center;
+  }
+  &-rate {
+  }
+  &-star {
+    color: @yellow;
+  }
+  &-counter {
+    margin-left: 10rpx;
+    font-size: 20rpx;
+    color: @grey;
+  }
+  &-detail {
+    margin-top: 28rpx;
+    display: flex;
+    flex-direction: row;
+    &-name {
+      flex-direction: column;
+      display: flex;
+    }
+    &-time {
+      color: @grey;
+      font-size: 20rpx;
+    }
+    &-pger {
+    }
+    &-container {
+      margin-left: 23rpx;
+      font-size: 20rpx;
+      width: 400rpx;
+      background-image: url("http://punolee.cn/images/w/comment.svg");
+      background-size: cover;
+      border-radius: 10rpx;
+      color: @grey-bold;
+      &-font {
+        align-self: flex-end;
+        width: 300rpx;
+        white-space: nowrap;
+        margin: 19rpx 60rpx;
+        position: absolute;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+.portfolio {
+  height: 100%;
+  margin-top: 571rpx;
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+  }
+  &-pic {
+    width: 370rpx;
+    height: 400rpx;
+    margin: 2rpx;
+    background-color: #eaeaea;
+  }
+  &-tag {
+    width: 144rpx;
+    position: absolute;
+    margin-top: -204rpx;
+  }
+}
+</style>
+
+<template>
+  <view>
+    <view class="container all">
+      <view class="container view">
+        <view class="card">
+          <image class="card-avatar" src="../assets/images/avatar.jpg"></image>
+          <view class="card-icon">
+            <image src="../assets/images/intro/robot.svg" class="card-icon-robot"></image>
+            <image src="../assets/images/intro/heart.svg" class="card-icon-heart"></image>
+            <image src="../assets/images/intro/calendar.svg" class="card-icon-calendar"></image>
+          </view>
+          <view class="card-profile">
+            <view class="card-profile-line">
+              <view class="card-profile-name">张叉叉
+                <image src="../assets/images/girl.svg" class="card-profile-icon-img" />
+              </view>
+
+            </view>
+            <view class="card-profile-tags">
+              <tagGroup :tags="tags"></tagGroup>
+            </view>
+            <view class="card-profile-location">
+              <image src="../assets/images/loc.svg" class="card-profile-icon-img" />上海 , xx</view>
+            <view class="card-profile-payment">片酬要求：100/小时</view>
+            <view class="card-profile-line">
+              <view class="card-profile-intro">萌妹子啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</view>
+            </view>
+
+          </view>
+          <view class="card-mask">
+            <view class="comment">
+              <view class="comment-rate">评价：
+                <span class="comment-star">{{star}}</span>
+                <span class="comment-counter">({{counter}})</span>
+              </view>
+              <view class="comment-detail">
+                <view class="comment-detail-name">
+                  <span class="comment-detail-pger">摄影师-PUNO</span>
+                  <span class="comment-detail-time">1/26/2018 12:00</span>
+                </view>
+                <view class="comment-detail-container">
+                  <p class="comment-detail-container-font">小楚很可爱的！合作愉快！：）</p>
+                </view>
+              </view>
+              <view class="comment-more">More...</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="portfolio">
+        <view class="portfolio-row">
+          <view class="portfolio-pic">
+            <image src="../assets/images/port-tag.svg" class="portfolio-tag"></image>
+          </view>
+          <view class="portfolio-pic"></view>
+        </view>
+        <view class="portfolio-row">
+          <view class="portfolio-pic"></view>
+          <view class="portfolio-pic"></view>
+        </view>
+        <view class="portfolio-row">
+          <view class="portfolio-pic"></view>
+          <view class="portfolio-pic"></view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import TagGroup from '../components/tagGroup'
+export default class Vi extends wepy.page {
+  config= {
+    navigationBarTitleText: '小楚'
+  }
+  components = {
+    tagGroup: TagGroup
+  }
+  data = {
+    rate: 3,
+    tags: [
+      '小清新',
+      '日系',
+      'lo'
+      // '矿业',
+      // '农业',
+      // '畜牧业'
+      // 需要限制长度
+    ]
+  }
+  computed = {
+    star() {
+      return '★★★★★☆☆☆☆☆'.slice(5 - this.rate, 10 - this.rate)
+    },
+    counter() {
+      return '3' + '/' + '6'
+    }
+  }
+}
+</script>
