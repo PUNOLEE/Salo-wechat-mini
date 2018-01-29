@@ -152,7 +152,7 @@ export default class tags extends wepy.page {
       this.store = store
       if (this.store.length === 4) {
         // submit form , need id
-        wx.redirectTo({
+        this.redirectTo({
           url: 'home'
         })
       }

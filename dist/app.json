@@ -1,1 +1,1 @@
-{"pages":["pages/index","pages/signup","pages/tags","pages/home","pages/view"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"沙龙 Salotto","navigationBarTextStyle":"black"}}
+{"pages":["pages/home","pages/personal","pages/signup","pages/index","pages/tags","pages/view"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"沙龙 Salotto","navigationBarTextStyle":"black"}}

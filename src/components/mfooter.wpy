@@ -4,7 +4,7 @@
     <view class="mfooter-icon">
       <image src="../assets/images/logo2.svg" class="mfooter-icon-image" />
     </view>
-    <view class="mfooter-person">个人中心</view>
+    <navigator class="mfooter-person" url="/pages/personal">个人中心</navigator>
   </view>
 </template>
 <script>
