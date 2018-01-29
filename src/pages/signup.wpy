@@ -58,7 +58,7 @@
   right: 65rpx;
   z-index: 2;
   color: #fff;
-  font-size: 16rpx;
+  font-size: 19rpx;
   box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(0, 0, 0, 0.5);
   top: 505rpx;
 }
@@ -138,7 +138,7 @@
       </view>
       <view class="tooltip {{hidden ? 'is-hidden' : 'is-show'}}">
         <p @tap="close">
-          <font class="close" @tap="close">?</font>只有资格调查审核合格的摄影师和模特才可以注册</p>
+          <font class="close" @tap="close">?</font>只有资格审核通过才可以注册</p>
       </view>
       <view class="form-section">
         <view class="form-info">手机号</view>

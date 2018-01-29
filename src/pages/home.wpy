@@ -5,11 +5,15 @@
       <navigator url="view">
         <personCard></personCard>
       </navigator>
-      <personCard></personCard>
-      <personCard></personCard>
-      <personCard></personCard>
-      <personCard></personCard>
-      <personCard></personCard>
+      <navigator url="view">
+        <personCard></personCard>
+      </navigator>
+      <navigator url="view">
+        <personCard></personCard>
+      </navigator>
+      <navigator url="view">
+        <personCard></personCard>
+      </navigator>
     </scroll-view>
     <mfooter class="home-footer"></mfooter>
   </view>
