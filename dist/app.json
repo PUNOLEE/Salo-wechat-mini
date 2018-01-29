@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"pages":["pages/home","pages/personal","pages/signup","pages/tags"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"沙龙 Salotto","navigationBarTextStyle":"black"}}
-=======
-{"pages":["pages/index","pages/signup","pages/tags","pages/home","pages/view"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"沙龙 Salotto","navigationBarTextStyle":"black"}}
->>>>>>> 77087afe93920a7f34f206f99b5c357c2039589c
+{"pages":["pages/home","pages/personal","pages/signup","pages/index","pages/tags","pages/view"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"沙龙 Salotto","navigationBarTextStyle":"black"}}

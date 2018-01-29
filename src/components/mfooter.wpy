@@ -1,7 +1,6 @@
 <template>
   <view class="mfooter">
     <view class="mfooter-view">浏览</view>
-    <view class="m-footer-icon">icon</view>
     <view class="mfooter-icon">
       <image src="../assets/images/logo2.svg" class="mfooter-icon-image" />
     </view>
