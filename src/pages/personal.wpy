@@ -48,7 +48,7 @@ export default class personal extends wepy.page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 112.3188rpx 0 61.5942rpx;
+  padding: 29.3188rpx 0 61.5942rpx;
   &-avatar {
     /* margin-top: 112.3188rpx; */
     position: relative;
