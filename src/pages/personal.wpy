@@ -1,0 +1,133 @@
+<template>
+  <view class="personal">
+    <!-- <view class="wrap"> -->
+    <view class="personal-avatar">
+      <view class="personal-avatar-edit">
+        <image src="../assets/images/intro/pencil-edit-button.svg" class="personal-avatar-edit-icon" />
+      </view>
+    </view>
+    <view class="personal-name">张查查</view>
+    <view class="personal-intro">@xxxxx</view>
+    <view class="personal-button-wrap">
+      <view class="personal-button" wx:for="{{buttons}}" wx:key="index">
+        <view class="personal-button-icon">
+          <image src="{{item.icon}}" class="personal-icon {{item.light?'personal-icon-light':''}}" />
+        </view>
+        <view class="personal-button-name">{{item.name}}</view>
+      </view>
+    </view>
+
+    <navigator url="/pages/home" class="personal-back">返回首页</navigator>
+  </view>
+  <!-- </view> -->
+</template>
+<script>
+import wepy from 'wepy'
+export default class personal extends wepy.page {
+  props = {}
+  config = {}
+  components = {}
+  data = {
+    buttons: [
+      {icon: '../assets/images/intro/calendar.svg', name: '日程'},
+      {icon: '../assets/images/intro/heart.svg', name: '喜欢', light: true},
+      {icon: '../assets/images/intro/photo-camera.svg', name: '约拍'},
+      {icon: '../assets/images/intro/user.svg', name: '认证'}
+    ]
+  }
+  computed = {}
+  methods = {}
+  events = {}
+  onload () {}
+}
+</script>
+<style lang= "less">
+@import url(../assets/main.less);
+.personal {
+  background: #f8f8f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 112.3188rpx 0 61.5942rpx;
+  &-avatar {
+    /* margin-top: 112.3188rpx; */
+    position: relative;
+    width: 221.0145rpx;
+    height: 221.0145rpx;
+    border-radius: 50%;
+    background: #000;
+    &-edit {
+      position: absolute;
+      right: 21.7391rpx;
+      bottom: 1.8116rpx;
+      width: 32.6087rpx;
+      height: 32.6087rpx;
+      background: @yellow;
+      border-radius: 50%;
+      &-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 16.3043rpx;
+        height: 14.4928rpx;
+      }
+    }
+  }
+  &-name {
+    margin-top: 36.2319rpx;
+    font-size: 28.9855rpx;
+  }
+  &-intro {
+    /* margin-top: 18.1159rpx; */
+    font-size: 16.3043rpx;
+  }
+  &-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 253.6232rpx;
+    &-wrap {
+      margin: 74.2754rpx 0;
+    }
+    & + & {
+      margin-top: 54.3478rpx;
+    }
+    &-icon {
+      width: 108.6957rpx;
+      height: 108.6957rpx;
+      background: #fff;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 1px 1px 20px 0px rgba(205, 205, 201, 0.34);
+      /* padding: 30.7971rpx; */
+    }
+  }
+  &-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 45.2899rpx;
+    height: 45.2899rpx;
+    color: @icon-color;
+    &-light {
+      color: @yellow;
+    }
+  }
+  /* &-icon:nth-child(2) {
+    color: @yellow;
+  } */
+  &-back {
+    width: 346.0145rpx;
+    height: 88.7681rpx;
+    background-image: linear-gradient(90deg, #fbc400 0%, #f66b1c 100%);
+    box-shadow: 0px 9px 14px 1px #c1c1c1;
+    border-radius: 100px;
+    text-align: center;
+    color: #fff;
+    font-size: 27.1739rpx;
+    line-height: 88.7681rpx;
+  }
+}
+</style>

@@ -6,10 +6,12 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      'pages/home',
+      'pages/personal',
       // 'pages/index',
       'pages/signup',
-      'pages/tags',
-      'pages/home'
+      'pages/tags'
+      // 'pages/home'
     ],
     window: {
       backgroundTextStyle: 'light',
