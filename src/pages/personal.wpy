@@ -3,7 +3,7 @@
     <!-- <view class="wrap"> -->
     <view class="personal-avatar">
       <view class="personal-avatar-edit">
-        <image src="../assets/images/intro/pencil-edit-button.svg" class="personal-avatar-edit-icon" />
+        <image src="../assets/images/intro/pencil-edit-button.svg" class="personal-avatar-edit-icon" @tap="edit" />
       </view>
     </view>
     <view class="personal-name">张查查</view>
@@ -17,7 +17,7 @@
       </view>
     </view>
 
-    <navigator url="/pages/home" class="personal-back">返回首页</navigator>
+    <!-- <navigator url="/pages/home" class="gradient-btn">返回首页</navigator> -->
   </view>
   <!-- </view> -->
 </template>
@@ -36,7 +36,13 @@ export default class personal extends wepy.page {
     ]
   }
   computed = {}
-  methods = {}
+  methods = {
+    edit: function() {
+      wx.navigateTo({
+        url: 'edit'
+      })
+    }
+  }
   events = {}
   onload () {}
 }
@@ -48,7 +54,7 @@ export default class personal extends wepy.page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 29.3188rpx 0 61.5942rpx;
+  padding: 109.3188rpx 0 61.5942rpx;
   &-avatar {
     /* margin-top: 112.3188rpx; */
     position: relative;
@@ -118,16 +124,5 @@ export default class personal extends wepy.page {
   /* &-icon:nth-child(2) {
     color: @yellow;
   } */
-  &-back {
-    width: 346.0145rpx;
-    height: 88.7681rpx;
-    background-image: linear-gradient(90deg, #fbc400 0%, #f66b1c 100%);
-    box-shadow: 0px 9px 14px 1px #c1c1c1;
-    border-radius: 100px;
-    text-align: center;
-    color: #fff;
-    font-size: 27.1739rpx;
-    line-height: 88.7681rpx;
-  }
 }
 </style>

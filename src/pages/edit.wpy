@@ -1,0 +1,114 @@
+<template>
+  <view>
+    <view class="edit-container" style="background-image:url({{imagePath}})">
+      <view class="edit-icon">
+        <image src="../assets/images/intro/photo-camera.svg" class="edit-icon-camera" @tap="chooseImg" />
+      </view>
+    </view>
+    <view class="edit-form-container">
+      <form class="edit-form">
+        <view class="edit-form-sec">
+          <view class="edit-form-info">账号名</view>
+          <input class="edit-form-input" name="account_id" placeholder="punolee1122" />
+        </view>
+        <view class="edit-form-sec">
+          <view class="edit-form-info">手机号</view>
+          <input class="edit-form-input" name="phone" placeholder="152xxxxxxxx" />
+        </view>
+        <view class="edit-form-sec">
+          <view class="edit-form-info">关于我</view>
+          <input class="edit-form-input" name="about" placeholder="" />
+        </view>
+        <view class="edit-form-sec">
+          <view class="edit-form-info">邮箱</view>
+          <input class="edit-form-input" name="account_id" placeholder="punolee@outlook.com" />
+        </view>
+        <view class="edit-form-sec">
+          <view class="edit-form-info">重置密码</view>
+          <input type="password" class="edit-form-input" name="resetpassword" placeholder="" />
+        </view>
+        <view class="edit-form-sec">
+          <navigator url="" class="gradient-btn">保存</navigator>
+        </view>
+      </form>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Edit extends wepy.page {
+  config = {
+    navigationBarBackgroundColor: '#fbc400',
+    navigationBarTitleText: '编辑'
+  }
+  data = {
+    imagePath: 'http://punolee.cn/images/w/me.jpg'
+  }
+  methods = {
+    chooseImg: function() {
+      var that = this
+      wx.chooseImage({
+        count: 1, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function (res) {
+          var tmpimgPath = res.tempFilePaths
+          console.log(tmpimgPath)
+          // wx.uploadFile({})
+          // that.setData({
+          //   imagePath: tmpimgPath
+          // })
+        }
+      })
+    }
+  }
+}
+</script>
+<style lang="less">
+@import url(../assets/main.less);
+.edit {
+  &-container {
+    width: 100%;
+    height: 402rpx;
+    background-color: #f2f2f2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &-icon {
+    position: absolute;
+    top: 350rpx;
+    right: 0;
+    margin-right: 20rpx;
+    &-camera {
+      width: 38rpx;
+      height: 38rpx;
+    }
+  }
+  &-form {
+    width: 100%;
+    position: absolute;
+    margin-top: 52rpx;
+    font-size: 32rpx;
+    &-container {
+      width: 100%;
+      height: 1300rpx;
+      background-image: url("http://punolee.cn/images/w/w.png");
+      background-size: cover;
+      box-shadow: 0rpx -70rpx 86rpx 0rpx rgba(0, 0, 0, 0.07);
+    }
+    &-sec {
+      margin: 0 auto;
+      width: 578rpx;
+      margin-bottom: 52rpx;
+    }
+    &-info {
+    }
+    &-input {
+      width: 100%;
+      height: 120rpx;
+      border-bottom: solid 1rpx black;
+    }
+  }
+}
+</style>
