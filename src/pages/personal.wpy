@@ -2,6 +2,7 @@
   <view class="personal">
     <!-- <view class="wrap"> -->
     <view class="personal-avatar">
+      <navigator url="view" class="av"></navigator>
       <view class="personal-avatar-edit">
         <image src="../assets/images/intro/pencil-edit-button.svg" class="personal-avatar-edit-icon" @tap="edit" />
       </view>
@@ -42,6 +43,7 @@ export default class personal extends wepy.page {
         url: 'edit'
       })
     }
+
   }
   events = {}
   onload () {}
@@ -49,6 +51,9 @@ export default class personal extends wepy.page {
 </script>
 <style lang= "less">
 @import url(../assets/main.less);
+.av {
+  height: 221.0145rpx;
+}
 .personal {
   background: #f8f8f6;
   display: flex;
