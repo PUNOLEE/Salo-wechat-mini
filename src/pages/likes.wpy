@@ -1,18 +1,9 @@
 <template>
   <view class="home">
     <scroll-view scroll-y class="home-content">
-      <navigator url="view">
-        <personCard></personCard>
-      </navigator>
-      <navigator url="view">
-        <personCard></personCard>
-      </navigator>
-      <navigator url="view">
-        <personCard></personCard>
-      </navigator>
-      <navigator url="view">
-        <personCard></personCard>
-      </navigator>
+      <repeat for="{{list}}" key="index" item="item">
+        <personCard :item="item"></personCard>
+      </repeat>
     </scroll-view>
   </view>
 </template>
@@ -27,7 +18,9 @@ export default class Home extends wepy.page {
   components = {
     personCard: PersonCard
   }
-  data = {}
+  data = {
+    list: [{id: 1, type: 'followed'}, {id: 2, type: 'followed'}, {id: 3, type: 'followed'}, {id: 4, type: 'followed'}]
+  }
   computed = {}
   methods = {}
   events = {}
@@ -48,7 +41,7 @@ export default class Home extends wepy.page {
   &-content {
     z-index: 100;
     position: absolute;
-    padding-bottom: 140rpx;
+    // padding-bottom: 140rpx;
     background: #eee;
   }
 }

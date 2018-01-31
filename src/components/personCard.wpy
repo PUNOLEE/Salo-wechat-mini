@@ -1,6 +1,6 @@
 <template>
   <view class="card">
-    <view class="card-avatar">
+    <view class="card-avatar" @tap="goTo">
 
     </view>
     <view class="card-profile">
@@ -21,7 +21,7 @@
       <view class="card-profile-payment">片酬要求：100/小时</view>
       <view class="card-profile-line">
         <view class="card-profile-intro">萌妹子啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</view>
-        <view class="card-profile-follow">+ Follow</view>
+        <view class="card-profile-{{item.type}}" @tap="changeFollow">{{item.type === 'follow' ? '+ follow' : 'followed'}}</view>
       </view>
       <view class="card-profile-tags">
         <tagGroup :tags="tags"></tagGroup>
@@ -34,7 +34,9 @@
 import wepy from 'wepy'
 import TagGroup from './tagGroup'
 export default class PersonCard extends wepy.component {
-  config = {}
+  props = {
+    item: Object
+  }
   components = {
     tagGroup: TagGroup
   }
@@ -58,9 +60,29 @@ export default class PersonCard extends wepy.component {
       return '3' + '/' + '6'
     }
   }
-  methods = {}
+  watch = {
+    // item(newValue, oldValue) {
+    //   console.log(`item value: ${oldValue} -> ${newValue}`)
+    // }
+  }
+  methods = {
+    changeFollow: function() {
+      if (this.item.type === 'follow') {
+        this.item.type = 'followed'
+      } else {
+        this.item.type = 'follow'
+      }
+    },
+    goTo: function() {
+      wx.navigateTo({
+        url: '/pages/view'
+      })
+    }
+  }
   events = {}
-  onload () {}
+  onLoad () {
+    console.log(this.item)
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -133,6 +155,15 @@ export default class PersonCard extends wepy.component {
       width: 110rpx;
       height: 45rpx;
       border: solid 1px @grey-bold;
+    }
+    &-followed {
+      font-size: 20rpx;
+      line-height: 45rpx;
+      text-align: center;
+      color: @yellow;
+      width: 110rpx;
+      height: 45rpx;
+      border: solid 1px @yellow;
     }
     &-tags {
       margin-top: 16.3043rpx;
