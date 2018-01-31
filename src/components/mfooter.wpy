@@ -2,9 +2,11 @@
   <view class="mfooter">
     <view class="mfooter-view">浏览</view>
     <view class="mfooter-icon">
-      <image src="../assets/images/logo2.svg" class="mfooter-icon-image" />
+      <navigator url="/pages/home" open-type="redirect">
+        <image src="../assets/images/logo2.svg" class="mfooter-icon-image" />
+      </navigator>
     </view>
-    <navigator class="mfooter-person" url="/pages/personal">个人中心</navigator>
+    <navigator class="mfooter-person" url="/pages/personal" open-type="redirect">个人中心</navigator>
   </view>
 </template>
 <script>

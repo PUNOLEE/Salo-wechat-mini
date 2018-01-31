@@ -260,6 +260,7 @@ import wepy from 'wepy'
 import TagGroup from '../components/tagGroup'
 export default class Vi extends wepy.page {
   config= {
+    navigationBarBackgroundColor: '#fbc400',
     navigationBarTitleText: '小楚'
   }
   components = {

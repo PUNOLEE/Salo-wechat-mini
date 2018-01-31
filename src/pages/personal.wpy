@@ -11,23 +11,30 @@
     <view class="personal-intro">@xxxxx</view>
     <view class="personal-button-wrap">
       <view class="personal-button" wx:for="{{buttons}}" wx:key="index">
-        <view class="personal-button-icon">
+        <view class="personal-button-icon" @tap="clickbtn({{item.name}})">
           <image src="{{item.icon}}" class="personal-icon {{item.light?'personal-icon-light':''}}" />
         </view>
         <view class="personal-button-name">{{item.name}}</view>
       </view>
     </view>
-
+    <mfooter class="home-footer"></mfooter>
     <!-- <navigator url="/pages/home" class="gradient-btn">返回首页</navigator> -->
   </view>
   <!-- </view> -->
 </template>
 <script>
 import wepy from 'wepy'
+import Mfooter from '../components/mfooter'
+
 export default class personal extends wepy.page {
   props = {}
-  config = {}
-  components = {}
+  config = {
+    navigationBarBackgroundColor: '#fbc400',
+    navigationBarTitleText: '个人中心'
+  }
+  components = {
+    mfooter: Mfooter
+  }
   data = {
     buttons: [
       {icon: '../assets/images/intro/calendar.svg', name: '日程'},
@@ -42,6 +49,14 @@ export default class personal extends wepy.page {
       wx.navigateTo({
         url: 'edit'
       })
+    },
+    clickbtn: function(type) {
+      console.log(type)
+      if (type === '喜欢') {
+        wx.navigateTo({
+          url: 'likes'
+        })
+      }
     }
 
   }
@@ -51,6 +66,7 @@ export default class personal extends wepy.page {
 </script>
 <style lang= "less">
 @import url(../assets/main.less);
+
 .av {
   height: 221.0145rpx;
 }
@@ -59,7 +75,7 @@ export default class personal extends wepy.page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 109.3188rpx 0 61.5942rpx;
+  padding: 61.5942rpx 0 61.5942rpx;
   &-avatar {
     /* margin-top: 112.3188rpx; */
     position: relative;
@@ -97,12 +113,13 @@ export default class personal extends wepy.page {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 253.6232rpx;
+    width: 254.6232rpx;
+    font-size: 32rpx;
     &-wrap {
-      margin: 74.2754rpx 0;
+      margin: 65.2754rpx 0;
     }
     & + & {
-      margin-top: 54.3478rpx;
+      margin-top: 47.3478rpx;
     }
     &-icon {
       width: 108.6957rpx;

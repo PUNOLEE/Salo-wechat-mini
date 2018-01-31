@@ -1,6 +1,5 @@
 <template>
   <view class="home">
-    <mheader class="home-header"></mheader>
     <scroll-view scroll-y class="home-content">
       <navigator url="view">
         <personCard></personCard>
@@ -15,23 +14,18 @@
         <personCard></personCard>
       </navigator>
     </scroll-view>
-    <mfooter class="home-footer"></mfooter>
-
   </view>
 </template>
 <script>
 import wepy from 'wepy'
 import PersonCard from '../components/personCard'
-import Mheader from '../components/mheader'
-import Mfooter from '../components/mfooter'
 export default class Home extends wepy.page {
   config = {
-    navigationBarBackgroundColor: '#fbc400'
+    navigationBarBackgroundColor: '#fbc400',
+    navigationBarTitleText: '喜欢'
   }
   components = {
-    personCard: PersonCard,
-    mheader: Mheader,
-    mfooter: Mfooter
+    personCard: PersonCard
   }
   data = {}
   computed = {}
@@ -54,7 +48,6 @@ export default class Home extends wepy.page {
   &-content {
     z-index: 100;
     position: absolute;
-    margin: 96rpx 0 0;
     padding-bottom: 140rpx;
     background: #eee;
   }
