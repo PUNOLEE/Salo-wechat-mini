@@ -1,0 +1,339 @@
+<template>
+  <view>
+    <view class="weeks box">
+      <view class="week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}
+      </view>
+    </view>
+    <view class="calendar-block">
+      <block wx:for="{{allDays}}" wx:for-item="object">
+        <!--年月-->
+        <view class="date-area" style="">
+          <view>{{object.year || "--"}} 年 {{object.month || "--"}} 月</view>
+        </view>
+        <!--日-->
+        <view class="days">
+          <!--循环空-->
+          <view wx:if="{{object.hasEmptyGrid}}" class="grid white-color" wx:for="{{object.empytGrids}}" wx:key="{{index}}" data-idx="{{index}}"></view>
+          <!--循环天-->
+          <view class="grid white-color" wx:for="{{object.days}}" wx:key="{{index}}" data-idx="{{index}}" data-object="{{object}}" bindtap="selectAction" style="">
+            <!--天-->
+            <view class="day {{item.status==0 ? 'disable' : 'enable'}} {{item.status==3 ? 'border-radius pink-bg' : ''}}">{{item.day}}</view>
+            <!--今天-->
+            <view wx:if="{{item.status==1}}" style="color:gray;font-size:12px;text-align:center;">今天</view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- <view class="footer-btn">
+      <button class="gradient-btn" @tap="save">保存</button>
+    </view> -->
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+var Data = require('../utils/data.js')
+
+export default class Calendar extends wepy.page {
+  props = {}
+  config = {
+    navigationBarBackgroundColor: '#fbc400',
+    navigationBarTitleText: '日程'
+
+  }
+  components = {}
+  data = {
+    weeks_ch: ['日', '一', '二', '三', '四', '五', '六'],
+    org_day: '',
+    org_year: '',
+    org_month: '',
+    allDays: [],
+    stDate: '',
+    edDate: ''}
+  computed = {}
+  methods = {
+    save: function() {
+      console.log(this.stDate, this.edDate)
+    }
+  }
+
+  events = {}
+  onLoad () {
+    var date = new Date()
+    // 获取当前的年月
+    var cur_year = date.getFullYear()
+    var cur_month = date.getMonth() + 1
+    var cur_day = date.getDate()
+
+    // 设置数据
+    this.org_year = date.getFullYear() // 现在时间的年月日
+    this.org_month = date.getMonth()
+    this.org_day = date.getDate()
+    this.initData(cur_year, cur_month)
+  }
+  calculateDays(year, month) {
+    var mObject = {}// 月对象
+    mObject['year'] = year
+    mObject['month'] = month
+    // 计算当前年月空的几天
+    var empytGrids = this.calculateEmptyGrids(year, month)
+    if (empytGrids.length > 0) {
+      mObject['hasEmptyGrid'] = true
+      mObject['empytGrids'] = empytGrids
+    } else {
+      mObject['hasEmptyGrid'] = false
+      mObject['empytGrids'] = []
+    }
+    var days = []
+    var thisMonthDays = this.getThisMonthDays(year, month)// 这个月有多少天
+    // 现在的时间
+    var cusDate = new Date(this.org_year, this.org_month, this.org_day)
+    var startDate
+    var endDate
+    if (this.data.startDate && this.data.endDate) {
+      startDate = Data.stringToDate(this.data.startDate)
+      endDate = Data.stringToDate(this.data.endDate)
+    }
+    if (this.data.startDate) {
+      startDate = Data.stringToDate(this.data.startDate)
+    }
+    for (let i = 1; i <= thisMonthDays; i++) {
+      var day = {}
+      // 加入的时间
+      var date = new Date(year, month - 1, i)
+      // status 0-不可选择 1-当前时间 2-可选择 3-被选中
+      day['day'] = i
+      // 比现在的时间比较是大于还是小于，小于则不可点击
+
+      var time = parseInt(Data.calculateTime(date, cusDate))
+      if (time < 0) {
+        day['status'] = 0
+      } else if (time === 0) {
+        day['status'] = 1
+      } else {
+        day['status'] = 2
+      }
+      if (this.data.startDate && this.data.endDate) {
+        var stime = parseInt(Data.calculateTime(date, startDate))
+        var etime = parseInt(Data.calculateTime(date, endDate))
+        if (stime >= 0 && etime <= 0) {
+          day['status'] = 3
+        }
+      } else if (this.data.startDate) {
+        stime = parseInt(Data.calculateTime(date, startDate))
+        if (stime === 0) {
+          day['status'] = 3
+        }
+      }
+      days.push(day)
+    }
+    mObject['days'] = days
+    return mObject
+  }
+  calculateEmptyGrids(year, month) {
+    const firstDayOfWeek = this.getFirstDayOfWeek(year, month)
+    let empytGrids = []
+    if (firstDayOfWeek > 0) {
+      for (let i = 0; i < firstDayOfWeek; i++) {
+        empytGrids.push(i)
+      }
+    }
+    return empytGrids
+  }
+   // =============获取当月有多少天（下个月月初是多少）==========
+  getThisMonthDays(year, month) {
+    return new Date(year, month, 0).getDate()
+  }
+  // =============获取当月第一周第一天是周几===========
+  getFirstDayOfWeek(year, month) {
+    return new Date(Date.UTC(year, month - 1, 1)).getDay()
+  }
+
+// 选择时间
+  selectAction(e) {
+    console.log(e.currentTarget.dataset.object)
+    var year = e.currentTarget.dataset.object.year
+    var month = e.currentTarget.dataset.object.month
+    var day = e.currentTarget.dataset.idx + 1
+    var selectDate = new Date(year, month - 1, day)
+      // 现在的时间
+    var cusDate = new Date(this.org_year, this.org_month, this.org_day)
+    var time = parseInt(Data.calculateTime(selectDate, cusDate))
+    if (time < 0) {
+      console.log('请选择合理的时间')
+        // wx.showToast({
+        //   title: '请选择合理的时间',
+        //   icon: 'error',
+        //   duration: 2000
+        // })
+      return
+    }
+    if (this.data.startDate && this.data.endDate) {
+      this.data.startDate = Data.formatDate(selectDate, 'yyyy-MM-dd')
+      this.data.endDate = null
+    } else if (this.data.startDate) {
+      this.data.endDate = Data.formatDate(selectDate, 'yyyy-MM-dd')
+    } else {
+      this.data.startDate = Data.formatDate(selectDate, 'yyyy-MM-dd')
+    }
+    this.initData(this.org_year, this.org_month + 1)
+      // 返回选择的时间（有起止时间的时候返回）
+    if (this.data.startDate && this.data.endDate) {
+      console.log(this.data.startDate)
+      console.log(this.data.endDate)
+      this.stDate = this.data.startDate
+      this.edDate = this.data.endDate
+        // var sDate = this.data.startDate
+        // var eDate = this.data.endDate
+        // var pages = getCurrentPages()
+        // var prevPage = pages[pages.length - 2] // 上一个页面
+        //   // 直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+        // prevPage.setData({
+        //   startDate: sDate,
+        //   endDate: eDate
+        // })
+        // wx.navigateBack({
+        //   delta: 1, // 回退前 delta(默认为1) 页面
+        //   success: function(res) {
+        //       // success
+        //   },
+        //   fail: function(res) {
+        //       // fail
+        //   },
+        //   complete: function(res) {
+        //       // complete
+        //   }
+        // })
+    }
+  }
+  initData(cur_year, cur_month) {
+      // 计算最近三个月的对象
+    var mObject0 = this.calculateDays(cur_year, cur_month)
+    console.log(mObject0)
+    if (cur_month + 1 > 12) {
+      cur_year = cur_year + 1
+      cur_month = 1
+    } else {
+      cur_month = cur_month + 1
+    }
+    var mObject1 = this.calculateDays(cur_year, cur_month)
+    if (cur_month + 1 > 12) { // 月不能大于12
+      cur_year = cur_year + 1
+      cur_month = 1
+    } else {
+      cur_month = cur_month + 1
+    }
+    var mObject2 = this.calculateDays(cur_year, cur_month)
+    if (cur_month + 1 > 12) { // 月不能大于12
+      cur_year = cur_year + 1
+      cur_month = 1
+    } else {
+      cur_month = cur_month + 1
+    }
+    var mObject3 = this.calculateDays(cur_year, cur_month)
+
+    this.allDays = [mObject0, mObject1, mObject2, mObject3]
+  }
+}
+</script>
+<style lang="less">
+@import url(../assets/main.less);
+
+.box {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+.calendar-block {
+  padding: 110rpx 0;
+}
+.pink-color {
+  color: rgb(64, 70, 128);
+}
+.white-color {
+  color: #fff;
+}
+.fs24 {
+  font-size: 24rpx;
+}
+.fs28 {
+  font-size: 28rpx;
+}
+.fs32 {
+  font-size: 32rpx;
+}
+.fs36 {
+  font-size: 36rpx;
+}
+/* pages/calendar/calendar.wxss ====================================*/
+.footer-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: @bg-color;
+  padding: 20rpx 0;
+}
+.date-area {
+  width: 100%;
+  padding: 10rpx 40rpx;
+  text-align: left;
+  color: @grey;
+  font-size: 36rpx;
+  // border-top: 1px solid lightgray;
+  // border-bottom: 1px solid lightgray;
+}
+.weeks {
+  padding: 10px 0;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-bottom: 1px solid @grey;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
+}
+.week {
+  flex: 1;
+  text-align: center;
+}
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+}
+.grid {
+  display: flex;
+  width: 107.1428571429rpx;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin: 10rpx 0;
+  text-align: center;
+  /*border: 1px solid lightgray;*/
+}
+.day {
+  width: 65rpx;
+  padding: 13rpx 0;
+  color: black;
+  font-size: 26rpx;
+  font-weight: 200;
+  text-align: center;
+}
+.border-radius {
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+  top: 0;
+  color: #fff;
+}
+.disable {
+  color: lightgray;
+}
+.pink-bg {
+  background-color: @yellow;
+}
+.purple-bg {
+  background-color: #b8b8f1;
+}
+</style>

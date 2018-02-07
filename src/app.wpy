@@ -9,6 +9,7 @@ export default class extends wepy.app {
       'pages/home',
       'pages/personal',
       'pages/edit',
+      'pages/calendar',
       'pages/likes',
       'pages/signup',
       'pages/index',

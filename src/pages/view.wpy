@@ -195,7 +195,9 @@
           <view class="card-icon">
             <image src="../assets/images/intro/robot.svg" class="card-icon-robot"></image>
             <image src="../assets/images/intro/heart.svg" class="card-icon-heart"></image>
-            <image src="../assets/images/intro/calendar.svg" class="card-icon-calendar"></image>
+            <navigator url="./calendar">
+              <image src="../assets/images/intro/calendar.svg" class="card-icon-calendar"></image>
+            </navigator>
           </view>
           <view class="card-profile">
             <view class="card-profile-line">
