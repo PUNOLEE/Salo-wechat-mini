@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>boy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home" transform="translate(-247.000000, -128.000000)">
+            <g id="models" transform="translate(-2.000000, 83.000000)">
+                <g id="1">
+                    <g id="container" transform="translate(168.000000, 23.000000)">
+                        <g id="boy" transform="translate(81.000000, 20.000000)">
+                            <g id="girl">
+                                <path d="M1.46296296,11.1666667 L5.16666667,7.46296296" id="Line" stroke="#FBC400" stroke-linecap="square"></path>
+                                <path d="M0.889835368,8.69941635 L0.889835368,11.6994164" id="Line-4" stroke="#FBC400" stroke-linecap="square"></path>
+                                <path d="M0.985534964,11.7128523 L3.98553496,11.7128523" id="Line-4" stroke="#FBC400" stroke-linecap="square"></path>
+                                <ellipse id="Oval-3" fill="#FBC400" cx="6.80220265" cy="6.07148637" rx="3.80220265" ry="3.80091477"></ellipse>
+                                <circle id="Oval-2" fill="#FFFFFF" cx="6.7944444" cy="6.01666662" r="2.68333329"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

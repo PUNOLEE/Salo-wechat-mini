@@ -1,35 +1,31 @@
 <template>
   <view>
-    <view class="edit-container" style="background-image:url({{imagePath}})">
-      <view class="edit-icon">
-        <image src="../assets/images/intro/photo-camera.svg" class="edit-icon-camera" @tap="chooseImg" />
-      </view>
-    </view>
+
     <view class="edit-form-container">
       <form class="edit-form">
         <view class="edit-form-sec">
-          <view class="edit-form-info">账号名</view>
-          <input class="edit-form-input" name="account_id" placeholder="punolee1122" disabled="true" />
+          <view class="edit-form-info">昵称</view>
+          <input class="edit-form-input" name="nickname" placeholder="PUNO_" />
         </view>
         <view class="edit-form-sec">
-          <view class="edit-form-info">手机号</view>
-          <input class="edit-form-input" name="phone" placeholder="152xxxxxxxx" disabled="true" />
+          <view class="edit-form-info">地址</view>
+          <input class="edit-form-input" name="address" placeholder="上海，普陀" />
         </view>
         <view class="edit-form-sec">
-          <view class="edit-form-info">性别</view>
-          <input class="edit-form-input" name="gender" placeholder="女" disabled="true" />
+          <view class="edit-form-info">片酬</view>
+          <input class="edit-form-input" name="payment" placeholder="m/h" />
         </view>
         <view class="edit-form-sec">
-          <view class="edit-form-info">关于我</view>
-          <input class="edit-form-input" name="about" placeholder="" />
+          <view class="edit-form-info">微博号</view>
+          <input class="edit-form-input" name="weibo" placeholder="" />
         </view>
         <view class="edit-form-sec">
-          <view class="edit-form-info">邮箱</view>
-          <input class="edit-form-input" name="account_id" placeholder="punolee@outlook.com" />
+          <view class="edit-form-info">blog账号名</view>
+          <input class="edit-form-input" name="blogaccount" placeholder="例: 500px, 图虫 等" />
         </view>
         <view class="edit-form-sec">
-          <view class="edit-form-info">重置密码</view>
-          <input type="password" class="edit-form-input" name="resetpassword" placeholder="" />
+          <view class="edit-form-info">其他</view>
+          <input class="edit-form-input" name="else" placeholder="" />
         </view>
         <view class="edit-form-sec">
           <navigator url="" class="gradient-btn">保存</navigator>
@@ -47,6 +43,7 @@ export default class Edit extends wepy.page {
   }
   data = {
     imagePath: 'http://punolee.cn/images/w/me.jpg'
+
   }
   methods = {
     chooseImg: function() {
@@ -70,6 +67,11 @@ export default class Edit extends wepy.page {
 </script>
 <style lang="less">
 @import url(../assets/main.less);
+page {
+  background-image: url("http://punolee.cn/images/w/w.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+}
 .edit {
   &-container {
     width: 100%;
@@ -96,9 +98,7 @@ export default class Edit extends wepy.page {
     font-size: 32rpx;
     &-container {
       width: 100%;
-      height: 1300rpx;
-      background-image: url("http://punolee.cn/images/w/w.png");
-      background-size: cover;
+
       box-shadow: 0rpx -70rpx 86rpx 0rpx rgba(0, 0, 0, 0.07);
     }
     &-sec {
@@ -106,7 +106,11 @@ export default class Edit extends wepy.page {
       width: 578rpx;
       margin-bottom: 52rpx;
     }
-    &-info {
+    &-picker {
+      padding: 56rpx 0;
+      color: @grey-bold;
+      border-bottom: solid 1rpx black;
+      width: 100%;
     }
     &-input {
       width: 100%;

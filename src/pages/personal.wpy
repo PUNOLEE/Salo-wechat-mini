@@ -56,6 +56,14 @@ export default class personal extends wepy.page {
         wx.navigateTo({
           url: 'likes'
         })
+      } else if (type === '认证') {
+        wx.navigateTo({
+          url: 'authen'
+        })
+      } else if (type === '日程') {
+        wx.navigateTo({
+          url: 'calendar'
+        })
       }
     }
 

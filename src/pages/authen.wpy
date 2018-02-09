@@ -1,0 +1,104 @@
+<template>
+  <view class="container">
+    <view class="authen">
+      <p class="authen-info">您的认证度不够无法使用完整功能哦～</p>
+    </view>
+    <view class="circle-box">
+      <canvas class="circle" style="width:212px; height:212px;" canvas-id="canvasArc">
+      </canvas>
+      <view class="draw_no">70%</view>
+    </view>
+    <view class="footer">
+      <button class="gradient-btn" @tap="goToRefine">去完善</button>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class Authen extends wepy.page {
+  props = {}
+  config = {
+    navigationBarBackgroundColor: '#fbc400',
+    navigationBarTitleText: '认证'
+  }
+  components = {}
+  data = {
+    angle: 0
+  }
+  computed = {
+  }
+  methods = {
+    goToRefine: function() {
+      wx.navigateTo({
+        url: 'autheninfo'
+      })
+    }
+
+  }
+  events = {}
+  onLoad () {
+    var cxt_arc = wx.createCanvasContext('canvasArc')// 创建并返回绘图上下文context对象。
+    cxt_arc.setLineWidth(6)
+    cxt_arc.setStrokeStyle('#d2d2d2')
+    cxt_arc.setLineCap('round')
+    cxt_arc.beginPath()// 开始一个新的路径
+    cxt_arc.arc(106, 106, 100, 0, 2 * Math.PI, false)// 设置一个原点(106,106)，半径为100的圆的路径到当前路径
+    cxt_arc.stroke()// 对当前路径进行描边
+
+    cxt_arc.setLineWidth(6)
+    cxt_arc.setStrokeStyle('#fbc400')
+    cxt_arc.setLineCap('round')
+    cxt_arc.beginPath()// 开始一个新的路径
+    cxt_arc.arc(106, 106, 100, -Math.PI * 1 / 2, Math.PI * 6 / 5, false)
+    cxt_arc.stroke()// 对当前路径进行描边
+
+    cxt_arc.draw()
+  }
+}
+</script>
+<style lang="less" >
+@import url(../assets/main.less);
+page {
+  background-image: url("http://punolee.cn/images/w/w.png");
+  background-size: cover;
+}
+.authen {
+  margin-top: 150rpx;
+  position: absolute;
+  &-info {
+    font-size: 28rpx;
+  }
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+.circle-box {
+  text-align: center;
+  margin-top: 308rpx;
+}
+
+.circle {
+  position: absolute;
+  right: 0;
+  margin: 0 auto;
+  left: 0;
+}
+
+.draw_no {
+  width: 100%;
+  color: @yellow;
+  position: absolute;
+  top: 432rpx;
+  right: 0;
+  left: 0;
+  margin: auto;
+  font-size: 76rpx;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  padding: 100rpx 0;
+}
+</style>

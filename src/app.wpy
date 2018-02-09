@@ -11,6 +11,8 @@ export default class extends wepy.app {
       'pages/edit',
       'pages/calendar',
       'pages/likes',
+      'pages/authen',
+      'pages/autheninfo',
       'pages/signup',
       'pages/index',
       'pages/tags',

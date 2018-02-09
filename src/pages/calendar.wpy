@@ -246,6 +246,8 @@ export default class Calendar extends wepy.page {
 }
 .calendar-block {
   padding: 110rpx 0;
+  overflow-y: hidden;
+  width: 100%;
 }
 .pink-color {
   color: rgb(64, 70, 128);
@@ -274,7 +276,6 @@ export default class Calendar extends wepy.page {
   padding: 20rpx 0;
 }
 .date-area {
-  width: 100%;
   padding: 10rpx 40rpx;
   text-align: left;
   color: @grey;
