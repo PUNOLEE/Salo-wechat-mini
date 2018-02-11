@@ -1,0 +1,79 @@
+<template>
+  <view class="chat">
+    <scroll-view scroll-y class="chat-content">
+
+    </scroll-view>
+    <!-- <view class="chat-content">
+
+    </view> -->
+    <view class="chat-box">
+      <view class="chat-box-emoji"></view>
+      <view class="chat-box-input"></view>
+      <view class="chat-box-plus"></view>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Chat extends wepy.page {
+  props = {}
+  config = {
+    navigationBarBackgroundColor: '#fbc400',
+    navigationBarTitleText: '经纪人'
+  }
+  components = {}
+  data = {}
+  computed = {}
+  methods = {}
+  events = {}
+  onload () {}
+}
+</script>
+<style lang= "less">
+.chat {
+  position: relative;
+
+  /* height: 100%; */
+  &-content {
+    height: 1213rpx;
+    /* position: absolute;
+    height: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    background: #f8f8f6;
+  }
+  &-box {
+    box-sizing: border-box;
+    width: 100%;
+    height: 139.4928rpx;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40rpx;
+    &-emoji {
+      width: 68.8406rpx;
+      height: 68.8406rpx;
+      background: #000;
+      border-radius: 50%;
+    }
+    &-input {
+      /* flex: 1; */
+      width: 463.7681rpx;
+      height: 68.8406rpx;
+      background-color: #f0f0ef;
+      border-radius: 45.2899rpx;
+    }
+    &-plus {
+      width: 68.8406rpx;
+      height: 68.8406rpx;
+      background: yellow;
+      border-radius: 50%;
+    }
+  }
+}
+</style>
