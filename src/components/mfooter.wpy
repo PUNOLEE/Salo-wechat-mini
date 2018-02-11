@@ -1,6 +1,6 @@
 <template>
   <view class="mfooter">
-    <view class="mfooter-view">浏览</view>
+    <navigator class="mfooter-view" url="/pages/browse" open-type="redirect">浏览</navigator>
     <view class="mfooter-icon">
       <navigator url="/pages/home" open-type="redirect">
         <image src="../assets/images/logo2.svg" class="mfooter-icon-image" />

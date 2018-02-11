@@ -1,0 +1,135 @@
+<template>
+  <view class="browse">
+    <mheader class="browse-header" :list.sync="tab"></mheader>
+    <view class="search-wrap">
+      <view class="search">
+        <image src="../assets/images/intro/robot.svg" class="search-icon" />
+      </view>
+    </view>
+    <scroll-view scroll-y class="browse-content">
+
+      <view class="tags">
+        <repeat for="{{tag}}" item="tagitem" key="idx" index="idx">
+          <view class="box">
+            <a data-ind="{{idx}}" class="color {{tag[idx].type == 'selected' ? 'is-checked' : ''}}" @tap="colorSelect">
+              <view class="img " style="background-image:url({{tagitem.add}}) ">
+                <view class="img-footer ">{{tagitem.name}}</view>
+              </view>
+            </a>
+          </view>
+        </repeat>
+      </view>
+    </scroll-view>
+    <mfooter class="home-footer"></mfooter>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import Mheader from '../components/mheader'
+import Mfooter from '../components/mfooter'
+export default class Browse extends wepy.page {
+  props = {}
+  config = {
+    navigationBarBackgroundColor: '#fbc400',
+    navigationBarTitleText: '浏览'
+  }
+  components = {
+    mheader: Mheader,
+    mfooter: Mfooter
+  }
+  data = {
+    tab: [{type: 'photo', name: '摄影师'}, {type: 'model', name: '模特'}],
+    tag: [
+        {'id': 1, 'name': '杂志', 'add': 'http://punolee.cn/images/w/T3.jpg', 'type': 'unselected'},
+        {'id': 2, 'name': '淘宝', 'add': 'http://punolee.cn/images/w/T4.jpg', 'type': 'unselected'},
+        {'id': 3, 'name': '日系', 'add': 'http://punolee.cn/images/w/T2.jpg', 'type': 'unselected'},
+        {'id': 4, 'name': '妆面', 'add': 'http://punolee.cn/images/w/T7.jpg', 'type': 'unselected'},
+        {'id': 5, 'name': '复古', 'add': 'http://punolee.cn/images/w/T1.jpg', 'type': 'unselected'},
+        {'id': 6, 'name': '创意', 'add': 'http://punolee.cn/images/w/T6.jpg', 'type': 'unselected'},
+        {'id': 7, 'name': '私房', 'add': 'http://punolee.cn/images/w/T8.jpg', 'type': 'unselected'},
+        {'id': 8, 'name': '黑白', 'add': 'http://punolee.cn/images/w/T5.jpg', 'type': 'unselected'},
+        {'id': 9, 'name': '胶片', 'add': 'http://punolee.cn/images/w/T13.jpg', 'type': 'unselected'},
+        {'id': 10, 'name': '人物', 'add': 'http://punolee.cn/images/w/T9.jpg', 'type': 'unselected'},
+        {'id': 11, 'name': '旅拍', 'add': 'http://punolee.cn/images/w/T10.jpg', 'type': 'unselected'},
+        {'id': 12, 'name': '街拍', 'add': 'http://punolee.cn/images/w/T11.jpg', 'type': 'unselected'}
+    ]
+  }
+  computed = {}
+  methods = {}
+  events = {}
+  onload () {}
+}
+</script>
+<style lang= "less" scoped>
+.browse {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  &-header {
+    z-index: 500;
+    position: fixed;
+    background: #fff;
+  }
+  &-content {
+    z-index: 100;
+    position: absolute;
+    margin: 68.8406rpx 0 0;
+    padding-bottom: 140rpx;
+    background: #eee;
+  }
+}
+.tags {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  margin: auto 0;
+  justify-content: center;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  // flex: 0.33;
+  // background-color: #ffffff;
+  // margin: 20rpx;
+  background-size: cover;
+  &-footer {
+    position: relative;
+    width: 100%;
+    top: 150rpx;
+    text-align: center;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 10px;
+    font-family: PingFangSC-Regular;
+    color: #fcfcfc;
+    background-color: rgba(74, 73, 74, 0.54);
+  }
+}
+.box {
+  width: 190rpx;
+  height: 190rpx;
+  margin: 20rpx;
+}
+.color {
+  display: block;
+  height: 100%;
+}
+.search {
+  position: relative;
+  width: 699.2754rpx;
+  height: 56.1594rpx;
+  background-color: #f0f0ef;
+  border-radius: 50.7246rpx;
+  &-wrap {
+    padding-top: 123.1884rpx;
+    display: flex;
+    justify-content: center;
+  }
+  &-icon {
+    position: absolute;
+    margin: 9.058rpx 0 0 23.5507rpx;
+    width: 38.0435rpx;
+    height: 38.0435rpx;
+  }
+}
+</style>
