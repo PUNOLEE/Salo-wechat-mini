@@ -75,7 +75,7 @@ export default class PersonCard extends wepy.component {
     },
     goTo: function() {
       wx.navigateTo({
-        url: '/pages/view'
+        url: '/pages/view?follow=' + this.item.type
       })
     }
   }

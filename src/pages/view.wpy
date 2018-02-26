@@ -196,7 +196,8 @@
             <navigator url="./chat">
               <image src="../assets/images/intro/robot.svg" class="card-icon-robot"></image>
             </navigator>
-            <image src="../assets/images/intro/heart.svg" class="card-icon-heart"></image>
+            <image wx-if="{{follow}}" src="../assets/images/intro/heart.svg" class="card-icon-heart" @tap="changeheart"></image>
+            <image wx-if="{{followed}}" src="../assets/images/full-heart.svg" class="card-icon-heart" @tap="changeheart"></image>
             <navigator url="./calendar">
               <image src="../assets/images/intro/calendar.svg" class="card-icon-calendar"></image>
             </navigator>
@@ -271,6 +272,8 @@ export default class Vi extends wepy.page {
     tagGroup: TagGroup
   }
   data = {
+    follow: true,
+    followed: false,
     rate: 3,
     tags: [
       '小清新',
@@ -288,6 +291,26 @@ export default class Vi extends wepy.page {
     },
     counter() {
       return '3' + '/' + '6'
+    }
+  }
+  methods = {
+    changeheart: function() {
+      if (this.follow === true) {
+        this.followed = true
+        this.follow = false
+      } else {
+        this.followed = false
+        this.follow = true
+      }
+    }
+  }
+  onLoad(options) {
+    if (options.follow === 'follow') {
+      this.follow = true
+      this.followed = false
+    } else {
+      this.follow = false
+      this.followed = true
     }
   }
 }
