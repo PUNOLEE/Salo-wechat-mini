@@ -6,7 +6,7 @@
   height: 100%;
 }
 .view {
-  background-image: url("http://punolee.cn/images/w/me.jpg");
+  background-image: url("http://punolee.cn/images/w/avatar.jpg");
   width: 100%;
   height: 700rpx;
   background-position: center;
