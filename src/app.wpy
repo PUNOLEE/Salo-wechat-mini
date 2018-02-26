@@ -7,15 +7,16 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/home',
+      'pages/index',
+      'pages/signup',
+      'pages/tags',
+
       'pages/personal',
       'pages/edit',
       'pages/calendar',
       'pages/likes',
       'pages/authen',
       'pages/autheninfo',
-      'pages/signup',
-      'pages/index',
-      'pages/tags',
       'pages/view'
     ],
     window: {

@@ -1,8 +1,10 @@
 <style lang="less">
 @import url(../assets/main.less);
 
-.container {
+page {
   background-image: url("http://punolee.cn/images/w/signup.png");
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 .logo {
   width: 242rpx;

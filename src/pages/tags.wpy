@@ -1,8 +1,10 @@
 <style lang="less">
 @import url(../assets/main.less);
 
-.container {
+page {
   background-image: url("http://punolee.cn/images/w/signup.png");
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 .more {
   margin-left: 10rpx;
@@ -152,7 +154,7 @@ export default class tags extends wepy.page {
       this.store = store
       if (this.store.length === 4) {
         // submit form , need id
-        this.redirectTo({
+        wx.redirectTo({
           url: 'home'
         })
       }

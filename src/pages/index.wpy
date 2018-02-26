@@ -1,8 +1,9 @@
 <style lang="less">
 @import url(../assets/main.less);
-
-.container {
+page {
   background-image: url("http://punolee.cn/images/w/1.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 .primary-btn {
   width: 276rpx;
@@ -18,7 +19,7 @@
   line-height: 92rpx;
 }
 .btn-group {
-  margin-top: 418rpx;
+  margin-top: 380rpx;
   margin-bottom: 32rpx;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -70,6 +70,10 @@ export default class Edit extends wepy.page {
 </script>
 <style lang="less">
 @import url(../assets/main.less);
+page {
+  background-image: url("http://punolee.cn/images/w/w.png");
+  background-size: cover;
+}
 .edit {
   &-container {
     width: 100%;
@@ -97,8 +101,7 @@ export default class Edit extends wepy.page {
     &-container {
       width: 100%;
       height: 1300rpx;
-      background-image: url("http://punolee.cn/images/w/w.png");
-      background-size: cover;
+
       box-shadow: 0rpx -70rpx 86rpx 0rpx rgba(0, 0, 0, 0.07);
     }
     &-sec {
