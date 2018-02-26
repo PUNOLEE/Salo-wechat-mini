@@ -8,8 +8,12 @@
     </view> -->
     <view class="chat-box">
       <view class="chat-box-emoji"></view>
-      <input class="chat-box-input" />
-      <view class="chat-box-plus"></view>
+      <view class="chat-box-input">
+        <input type="text" class="chat-box-input-container">
+      </view>
+      <view class="chat-box-plus">
+        <image src="../assets/images/back.svg" class="chat-box-plus-icon" />
+      </view>
     </view>
   </view>
 </template>
@@ -68,12 +72,22 @@ export default class Chat extends wepy.page {
       background-color: #f0f0ef;
       border-radius: 45.2899rpx;
       padding: 0rpx 10rpx;
+      &-container {
+        height: 139.4928rpx;
+        position: absolute;
+        bottom: 0;
+        font-size: 30rpx;
+      }
     }
     &-plus {
       width: 68.8406rpx;
       height: 68.8406rpx;
-      background: yellow;
-      border-radius: 50%;
+      /* background: yellow;
+      border-radius: 50%; */
+      &-icon {
+        width: 68.8406rpx;
+        height: 68.8406rpx;
+      }
     }
   }
 }

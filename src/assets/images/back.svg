@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="41px" viewBox="0 0 41 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="chat" transform="translate(-357.000000, -675.000000)">
+            <g id="back" transform="translate(377.448873, 695.500000) rotate(90.000000) translate(-377.448873, -695.500000) translate(356.948873, 675.000000)">
+                <g>
+                    <circle id="Oval-3" fill="#FBC400" cx="20.4744367" cy="20.4744367" r="20.4744367"></circle>
+                    <path d="M10.4899862,20.5639382 L30.4110597,20.5639382" id="Line-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></path>
+                    <path d="M19.8971598,30.0778381 L19.8971598,10.1567646" id="Line-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -4,6 +4,7 @@
     <view class="search-wrap">
       <view class="search">
         <image src="../assets/images/search.svg" class="search-icon" />
+        <input type="text" class="search-input">
       </view>
     </view>
     <scroll-view scroll-y class="browse-content">
@@ -64,6 +65,8 @@ export default class Browse extends wepy.page {
 }
 </script>
 <style lang= "less" scoped>
+@import url(../assets/main.less);
+
 .browse {
   position: relative;
   box-sizing: border-box;
@@ -127,6 +130,12 @@ export default class Browse extends wepy.page {
     padding-top: 123.1884rpx;
     display: flex;
     justify-content: center;
+  }
+  &-input {
+    padding-top: 8rpx;
+    padding-left: 70rpx;
+    font-size: 30rpx;
+    color: @grey-bold;
   }
   &-icon {
     position: absolute;

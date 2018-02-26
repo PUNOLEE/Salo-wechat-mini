@@ -29,12 +29,18 @@ export default class mfooter extends wepy.component {
   width: 100%;
   height: 114rpx;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   padding: 0 126.8116rpx;
   align-items: center;
   font-size: 28.9855rpx;
   font-family: PingFangSC-Medium;
   box-shadow: 0px -1px 9px rgba(0, 0, 0, 0.2);
+  &-view,
+  &-person {
+    width: 120rpx;
+    text-align: center;
+  }
   &-icon {
     margin-top: 8rpx;
     &-image {
