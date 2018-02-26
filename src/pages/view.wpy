@@ -164,6 +164,37 @@
     }
   }
 }
+.tooltip {
+  width: 160rpx;
+  height: 150rpx;
+  border-radius: 20rpx;
+  background-color: @yellow;
+  position: absolute;
+  left: 37rpx;
+  z-index: 2;
+  color: #fff;
+  font-size: 19rpx;
+  box-shadow: 0rpx 6rpx 10rpx 0rpx rgba(0, 0, 0, 0.5);
+  top: -139rpx;
+  font-weight: 500;
+}
+.tooltip p {
+  padding: 19rpx 18rpx 18rpx 26rpx;
+  position: absolute;
+}
+.close {
+  color: #fff;
+  font-size: 30rpx;
+  position: absolute;
+  margin-top: -33rpx;
+  margin-left: 87rpx;
+}
+.is-hidden {
+  visibility: hidden;
+}
+.is-show {
+  visibility: visible;
+}
 .portfolio {
   height: 100%;
   margin-top: 571rpx;
@@ -193,6 +224,10 @@
         <view class="card">
           <image class="card-avatar" src="../assets/images/avatar.jpg"></image>
           <view class="card-icon">
+            <view class="tooltip {{hidden ? 'is-hidden' : 'is-show'}}">
+              <p>
+                <font class="close"></font>HI! 我是小楚的智能经纪人！想约她拍照吗？点我！</p>
+            </view>
             <navigator url="./chat">
               <image src="../assets/images/intro/robot.svg" class="card-icon-robot"></image>
             </navigator>
@@ -272,6 +307,7 @@ export default class Vi extends wepy.page {
     tagGroup: TagGroup
   }
   data = {
+    hidden: false,
     follow: true,
     followed: false,
     rate: 3,
@@ -302,6 +338,9 @@ export default class Vi extends wepy.page {
         this.followed = false
         this.follow = true
       }
+    },
+    close: function() {
+      this.hidden = true
     }
   }
   onLoad(options) {

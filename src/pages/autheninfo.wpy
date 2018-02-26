@@ -39,7 +39,7 @@ import wepy from 'wepy'
 export default class Edit extends wepy.page {
   config = {
     navigationBarBackgroundColor: '#fbc400',
-    navigationBarTitleText: '编辑'
+    navigationBarTitleText: '认证'
   }
   data = {
     imagePath: 'http://punolee.cn/images/w/me.jpg'
