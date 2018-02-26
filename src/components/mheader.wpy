@@ -2,21 +2,34 @@
   <view class="mheader">
     <!-- <view class="mheader-line"></view> -->
     <view class="mheader-content">
-      <view>推荐</view>
-      <view>关注</view>
-      <view>热门</view>
+      <repeat for="{{list}}" key="index" item="item">
+        <!-- <personCard :item="item"></personCard> -->
+        <view data-type="{{item.type}}" class="tab {{type == item.type ? 'tab-selected' : ''}}" @tap="menuClick">{{item.name}}</view>
+      </repeat>
+      <!-- <view data-name="tuijian" class="tab {{type == 'tuijian' ? 'tab-selected' : ''}}" @tap="menuClick">推荐</view>
+      <view data-name="guanzhu" class="tab {{type == 'guanzhu' ? 'tab-selected' : ''}}" @tap="menuClick">关注</view>
+      <view data-name="remen" class="tab {{type == 'remen' ? 'tab-selected' : ''}}" @tap="menuClick">热门</view> -->
     </view>
   </view>
 </template>
 <script>
 import wepy from 'wepy'
 export default class mheader extends wepy.component {
-  props = {}
+  props = {
+    list: {}
+  }
   config = {}
   components = {}
-  data = {}
+  data = {
+    type: 'tuijian'
+  }
   computed = {}
-  methods = {}
+  methods = {
+    menuClick(e) {
+      console.log(e)
+      this.type = e.target.dataset.type
+    }
+  }
   events = {}
   onLoad () {}
 }
@@ -42,6 +55,18 @@ export default class mheader extends wepy.component {
     justify-content: space-between;
     align-items: center;
     font-size: 28.9855rpx;
+    .tab {
+      width: 105rpx;
+      height: 100%;
+      line-height: 96rpx;
+      text-align: center;
+      &-selected {
+        border-bottom: solid 3px #fbc400;
+      }
+    }
+    .tab + .tab {
+      margin-left: 36.2319rpx;
+    }
   }
 }
 </style>

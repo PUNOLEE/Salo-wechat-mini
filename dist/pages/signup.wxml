@@ -7,13 +7,13 @@
         <input class="form-input" name="account_id" placeholder=""/>
       </view>
       <view class="form-section">
-        <view class="form-info">IDKEY</view>
+        <view class="form-info">邀请码</view>
         <input class="form-input" name="idkey" placeholder=""/>
         <image src="../assets/images/tip.svg" class="form-q " bindtap="question"/>
       </view>
       <view class="tooltip {{hidden ? 'is-hidden' : 'is-show'}}">
         <p bindtap="close">
-          <font class="close" bindtap="close">?</font>只有资格审核通过才可以注册</p>
+          <font class="close" bindtap="close">?</font>只有资格审核通过才有邀请码</p>
       </view>
       <view class="form-section">
         <view class="form-info">手机号</view>
@@ -38,7 +38,7 @@
       <view class="form-section">
         <button formType="submit" class="great-btn">注册</button>
         <navigator class="outerlink">
-          <font class="more">了解更多</font>IDKEY信息！
+          <font class="more">了解更多</font>邀请码信息！
         </navigator>
       </view>
     </form>
