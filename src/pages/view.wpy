@@ -193,7 +193,9 @@
         <view class="card">
           <image class="card-avatar" src="../assets/images/avatar.jpg"></image>
           <view class="card-icon">
-            <image src="../assets/images/intro/robot.svg" class="card-icon-robot"></image>
+            <navigator url="./chat">
+              <image src="../assets/images/intro/robot.svg" class="card-icon-robot"></image>
+            </navigator>
             <image src="../assets/images/intro/heart.svg" class="card-icon-heart"></image>
             <navigator url="./calendar">
               <image src="../assets/images/intro/calendar.svg" class="card-icon-calendar"></image>

@@ -1,9 +1,9 @@
 <template>
   <view class="browse">
-    <mheader class="browse-header" :list.sync="tab"></mheader>
+    <mheader class="browse-header" :list.sync="tab" :text="text"></mheader>
     <view class="search-wrap">
       <view class="search">
-        <image src="../assets/images/intro/robot.svg" class="search-icon" />
+        <image src="../assets/images/search.svg" class="search-icon" />
       </view>
     </view>
     <scroll-view scroll-y class="browse-content">
@@ -38,6 +38,7 @@ export default class Browse extends wepy.page {
     mfooter: Mfooter
   }
   data = {
+    text: 'photo',
     tab: [{type: 'photo', name: '摄影师'}, {type: 'model', name: '模特'}],
     tag: [
         {'id': 1, 'name': '杂志', 'add': 'http://punolee.cn/images/w/T3.jpg', 'type': 'unselected'},
@@ -57,7 +58,9 @@ export default class Browse extends wepy.page {
   computed = {}
   methods = {}
   events = {}
-  onload () {}
+  onLoad () {
+    this.text = 'photo'
+  }
 }
 </script>
 <style lang= "less" scoped>
@@ -73,9 +76,9 @@ export default class Browse extends wepy.page {
   &-content {
     z-index: 100;
     position: absolute;
-    margin: 68.8406rpx 0 0;
+    margin: 29.8406rpx 0 0;
     padding-bottom: 140rpx;
-    background: #eee;
+    background: #f8f8f6;
   }
 }
 .tags {

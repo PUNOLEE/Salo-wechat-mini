@@ -16,12 +16,13 @@
 import wepy from 'wepy'
 export default class mheader extends wepy.component {
   props = {
-    list: {}
+    list: {},
+    text: String
   }
   config = {}
   components = {}
   data = {
-    type: 'tuijian'
+    type: ''
   }
   computed = {}
   methods = {
@@ -31,7 +32,9 @@ export default class mheader extends wepy.component {
     }
   }
   events = {}
-  onLoad () {}
+  onLoad () {
+    this.type = this.text
+  }
 }
 </script>
 <style lang= "less">

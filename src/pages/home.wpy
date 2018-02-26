@@ -1,6 +1,6 @@
 <template>
   <view class="home">
-    <mheader class="home-header" :list.sync="tab"></mheader>
+    <mheader class="home-header" :list.sync="tab" :text="text"></mheader>
     <scroll-view scroll-y class="home-content">
       <repeat for="{{list}}" key="index" item="item">
         <personCard :item="item"></personCard>
@@ -26,6 +26,7 @@ export default class Home extends wepy.page {
     mfooter: Mfooter
   }
   data = {
+    text: 'tuijian',
     list: [{id: 1, type: 'follow'}, {id: 2, type: 'followed'}, {id: 3, type: 'follow'}, {id: 4, type: 'followed'}],
     tab: [{type: 'tuijian', name: '推荐'}, {type: 'guanzhu', name: '关注'}, {type: 'remen', name: '热门'}]
   }
