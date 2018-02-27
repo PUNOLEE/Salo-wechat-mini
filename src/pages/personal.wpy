@@ -38,7 +38,7 @@ export default class personal extends wepy.page {
   data = {
     buttons: [
       {icon: '../assets/images/intro/calendar.svg', name: '日程'},
-      {icon: '../assets/images/intro/heart.svg', name: '喜欢', light: true},
+      // {icon: '../assets/images/intro/heart.svg', name: '喜欢', light: true},
       {icon: '../assets/images/intro/photo-camera.svg', name: '约拍'},
       {icon: '../assets/images/intro/user.svg', name: '认证'}
     ]
@@ -52,11 +52,7 @@ export default class personal extends wepy.page {
     },
     clickbtn: function(type) {
       console.log(type)
-      if (type === '喜欢') {
-        wx.navigateTo({
-          url: 'likes'
-        })
-      } else if (type === '认证') {
+      if (type === '认证') {
         wx.navigateTo({
           url: 'authen'
         })
@@ -74,16 +70,18 @@ export default class personal extends wepy.page {
 </script>
 <style lang= "less">
 @import url(../assets/main.less);
-
+page {
+  background-color: #f8f8f6;
+}
 .av {
   height: 221.0145rpx;
 }
 .personal {
-  background: #f8f8f6;
+  /* background: #f8f8f6; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 61.5942rpx 0 61.5942rpx;
+  padding: 100.5942rpx 0 61.5942rpx;
   &-avatar {
     /* margin-top: 112.3188rpx; */
     position: relative;
@@ -124,7 +122,7 @@ export default class personal extends wepy.page {
     width: 254.6232rpx;
     font-size: 32rpx;
     &-wrap {
-      margin: 65.2754rpx 0;
+      margin: 108.2754rpx 0;
     }
     & + & {
       margin-top: 47.3478rpx;
