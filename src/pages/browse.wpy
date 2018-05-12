@@ -1,6 +1,6 @@
 <template>
   <view class="browse">
-    <mheader class="browse-header" :list.sync="tab" :text="text"></mheader>
+    <!-- <mheader class="browse-header" :list.sync="tab" :text="text"></mheader> -->
     <view class="search-wrap">
       <view class="search">
         <image src="../assets/images/search.svg" class="search-icon" />
@@ -127,7 +127,7 @@ export default class Browse extends wepy.page {
   background-color: #f0f0ef;
   border-radius: 50.7246rpx;
   &-wrap {
-    padding-top: 123.1884rpx;
+    padding-top: 29.8406rpx;
     display: flex;
     justify-content: center;
   }

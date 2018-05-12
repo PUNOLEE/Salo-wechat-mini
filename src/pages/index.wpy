@@ -85,7 +85,9 @@ page {
 <template >
   <view class="container">
     <image class="logo" src="../assets/images/logo.png"></image>
+
     <view class="btn-group" animation="{{animationData}}">
+
       <navigator class="primary-btn home-btn" url="/pages/signup?ty=0" redirect="false" hover-class="navigator-hover">
         <view class="btn-font">我是摄影师</view>
       </navigator>
@@ -104,11 +106,49 @@ page {
 </template>
 <script>
   import wepy from 'wepy'
+
 export default class Salo extends wepy.page {
     data = {
-      animationData: {}
+      animationData: {},
+      code: ''
+    }
+    components = {
+    }
+    methods = {
+
+    }
+    computed = {
+  
     }
     onLoad() {
+      var header = this.$parent.globalData.header
+      wx.login({
+        success: function(res) {
+          this.code = res.code
+          if (res.code) {
+            wx.request({
+              url: 'http://localhost:8080/login',
+              header: header,
+              data: {
+                code: this.code
+              },
+              success: function(res) {
+                header.Cookie = res.data.payload
+  
+              // getApp().globalData.header.Cookie = 'JSESSIONID=' + res.data
+              // wx.getStorage({
+              //   key: 'session',
+              //   success: function(res) {
+              //     console.log(res.data)
+              //   }
+              // })
+              }
+            })
+          } else {
+            // console.log('请注册！')
+          }
+        }
+      })
       var animation = wx.createAnimation({
         duration: 1000,
         timingFunction: 'ease-in'

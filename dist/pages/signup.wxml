@@ -17,26 +17,27 @@
       </view>
       <view class="form-section">
         <view class="form-info">手机号</view>
-        <input class="form-input" name="phone" placeholder=""/>
+        <input class="form-input" name="phone" placeholder="" bindchange="getPhoneNum"/>
       </view>
       <view class="form-section">
         <view class="form-info">验证码</view>
         <input class="form-input code" name="code" placeholder=""/>
-        <button class="code-btn">获取</button>
+        <button class="code-btn" bindtap="getPhoneCode" disabled="{{disabled}}">{{text}}</button>
       </view>
-      <view class="form-section">
+      <!-- <view class="form-section">
         <view class="form-info">密码</view>
-        <input class="form-input" type="password" name="password" placeholder=""/>
+        <input class="form-input" type="password" name="password" placeholder="" />
       </view>
       <view class="form-section">
         <view class="form-info">确认密码</view>
-        <input class="form-input" type="password" name="repassword" placeholder=""/>
-      </view>
+        <input class="form-input" type="password" name="repassword" placeholder="" />
+      </view> -->
       <view class="form-section">
         <span class="form-span">{{tip}}</span>
       </view>
       <view class="form-section">
         <button formType="submit" class="great-btn">注册</button>
+        <!-- <button open-type="getUserInfo" class="great-btn" bindtap="getUserIn">授权</button> -->
         <navigator class="outerlink">
           <font class="more">了解更多</font>邀请码信息！
         </navigator>

@@ -1,5 +1,25 @@
 <template>
   <view>
+    <view class="selection">
+      <view class="selection-area">
+        <view>{{aDate}}</view>
+        <text class="selection-text">/</text>
+        <view>{{bDate}}</view>
+      </view>
+      <view class="selection-area">
+        <picker mode="time" value="{{atime}}" start="09:01" end="21:01" @change="bindTimeChange">
+          <view class="picker">
+            {{atime}}
+          </view>
+        </picker>
+        <text class="selection-text">~</text>
+        <picker mode="time" value="{{btime}}" start="09:01" end="21:01" @change="bindTimeChangeb">
+          <view class="picker">
+            {{btime}}
+          </view>
+        </picker>
+      </view>
+    </view>
     <view class="weeks box">
       <view class="week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}
       </view>
@@ -25,9 +45,9 @@
       </block>
     </view>
 
-    <!-- <view class="footer-btn">
+    <view class="footer-btn">
       <button class="gradient-btn" @tap="save">保存</button>
-    </view> -->
+    </view>
   </view>
 </template>
 <script>
@@ -49,11 +69,23 @@ export default class Calendar extends wepy.page {
     org_month: '',
     allDays: [],
     stDate: '',
-    edDate: ''}
+    edDate: '',
+    aDate: '05-01',
+    bDate: '05-01',
+    atime: '09:01',
+    btime: '21:01' }
   computed = {}
   methods = {
     save: function() {
       console.log(this.stDate, this.edDate)
+    },
+    bindTimeChange: function(e) {
+      console.log('picker发送选择改变，携带值为', e.detail.value)
+      this.atime = e.detail.value
+    },
+    bindTimeChangeb: function(e) {
+      console.log('picker发送选择改变，携带值为', e.detail.value)
+      this.btime = e.detail.value
     }
   }
 
@@ -183,6 +215,8 @@ export default class Calendar extends wepy.page {
       console.log(this.data.endDate)
       this.stDate = this.data.startDate
       this.edDate = this.data.endDate
+      this.aDate = this.data.startDate.substring(5)
+      this.bDate = this.data.endDate.substring(5)
         // var sDate = this.data.startDate
         // var eDate = this.data.endDate
         // var pages = getCurrentPages()
@@ -245,7 +279,7 @@ export default class Calendar extends wepy.page {
   align-items: center;
 }
 .calendar-block {
-  padding: 110rpx 0;
+  padding: 210rpx 0;
   overflow-y: hidden;
   width: 100%;
 }
@@ -273,21 +307,46 @@ export default class Calendar extends wepy.page {
   bottom: 0;
   width: 100%;
   background-color: @bg-color;
-  padding: 20rpx 0;
+  padding: 20rpx 0 28rpx 0;
 }
 .date-area {
   padding: 10rpx 40rpx;
   text-align: left;
   color: @grey;
   font-size: 36rpx;
+  font-weight: 400;
   // border-top: 1px solid lightgray;
   // border-bottom: 1px solid lightgray;
+}
+.selection {
+  background-color: #f8f8f6;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  height: 100rpx;
+  width: 100%;
+  z-index: 11;
+  &-area {
+    height: 100%;
+    align-items: center;
+    font-weight: 300;
+    display: flex;
+
+    justify-content: space-between;
+    font-size: 36rpx;
+  }
+  &-text {
+    color: @grey-bold;
+    font-size: 50rpx;
+    margin: 0 10rpx;
+  }
 }
 .weeks {
   padding: 10px 0;
   height: 50rpx;
   line-height: 50rpx;
-  border-bottom: 1px solid @grey;
+  border-bottom: 1px solid #e5e5e2;
+  top: 100rpx;
   position: fixed;
   width: 100%;
   background-color: #fff;

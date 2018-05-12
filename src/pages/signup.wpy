@@ -144,26 +144,27 @@ page {
       </view>
       <view class="form-section">
         <view class="form-info">手机号</view>
-        <input class="form-input" name="phone" placeholder="" />
+        <input class="form-input" name="phone" placeholder="" @change="getPhoneNum" />
       </view>
       <view class="form-section">
         <view class="form-info">验证码</view>
         <input class="form-input code" name="code" placeholder="" />
-        <button class="code-btn">获取</button>
+        <button class="code-btn" @tap="getPhoneCode" disabled="{{disabled}}">{{text}}</button>
       </view>
-      <view class="form-section">
+      <!-- <view class="form-section">
         <view class="form-info">密码</view>
         <input class="form-input" type="password" name="password" placeholder="" />
       </view>
       <view class="form-section">
         <view class="form-info">确认密码</view>
         <input class="form-input" type="password" name="repassword" placeholder="" />
-      </view>
+      </view> -->
       <view class="form-section">
         <span class="form-span">{{tip}}</span>
       </view>
       <view class="form-section">
         <button formType="submit" class="great-btn">注册</button>
+        <!-- <button open-type="getUserInfo" class="great-btn" @tap="getUserIn">授权</button> -->
         <navigator class="outerlink">
           <font class="more">了解更多</font>邀请码信息！
         </navigator>
@@ -178,30 +179,134 @@ import wepy from 'wepy'
 
 export default class signup extends wepy.page {
   data = {
+    accountName: '',
+    IDKEY: '',
+    phoneCode: '',
+    phoneNum: '',
     tip: '',
+    userInfo: '',
     type: 0,
+    text: '获取',
+    count: 60,
+    disabled: false,
     hidden: true
   }
   components = {
   }
+  computed = {
+  }
   methods = {
-    formSubmit: function(e) {
-      if (e.detail.value.account_id.length === 0 || e.detail.value.idkey.length === 0 || e.detail.value.password.length === 0) {
-        this.tip = '账号名、IDKEY和密码不能为空！'
-      } else if (e.detail.value.phone.length === 0) {
-        this.tip = '手机号不能为空！'
-      } else if (e.detail.value.password !== e.detail.value.repassword) {
-        this.tip = '两次输入密码不同！'
+    getUserIn: function() {
+
+    },
+    getPhoneNum: function(e) {
+      this.phoneNum = e.detail.value
+      if (!(/^1[34578]\d{9}$/.test(this.phoneNum))) {
+        this.tip = '手机号码有误，请重填'
       } else {
-        // 验证码验证
         this.tip = ''
-        console.log('成功')
-        // request + idkey 验证
-        wx.redirectTo({
-          url: 'tags?acc=' + e.detail.value.account_id
-        })
       }
     },
+    formSubmit: function(e) {
+      var header = this.$parent.globalData.header
+      console.log(header.Cookie)
+      this.accountName = e.detail.value.account_id
+      this.IDKEY = e.detail.value.idkey
+      this.phoneCode = e.detail.value.code
+
+      console.log(this.accountName, this.IDKEY, this.phoneCode)
+
+      if (this.accountName.length === 0 || this.IDKEY.length === 0) {
+        this.tip = '账号名、邀请码不能为空！'
+      } else if (this.phoneNum.length === 0 || this.phoneCode.length === 0) {
+        this.tip = '手机号、验证码不能为空！'
+      } else if (!(/^1[34578]\d{9}$/.test(this.phoneNum))) {
+        this.tip = '手机号码有误，请重填'
+      } else {
+        wx.request({
+          url: 'http://localhost:8080/register',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'Cookie': header.Cookie
+          },
+          data: {
+            accountName: this.accountName,
+            IDKEY: this.IDKEY,
+            phoneNum: this.phoneNum,
+            phoneCode: this.phoneCode,
+            userType: this.type,
+            session: header.Cookie
+          },
+          method: 'POST',
+          success: function(res) {
+            console.log(res.data.msg)
+            if (res.data.success) {
+              wx.redirectTo({
+                url: 'tags?acc=' + e.detail.value.account_id
+              })
+            } else {
+              wx.showModal({
+                title: '提示',
+                content: res.data.msg,
+                success: function(d) {
+                  if (d.confirm) {
+                    console.log('用户点击确定')
+                  } else if (d.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+            }
+          }
+        })
+        // wepy.request('http://localhost:8080/register', this.phoneNum).then((d) => console.log(d))
+        this.tip = ''
+        // console.log('成功')
+        // request + idkey 验证
+      }
+    },
+    getPhoneCode: function() {
+      var self = this
+      self.disabled = true
+      var ticktock = setInterval(function() {
+        var str = '剩' + (self.count -= 1) + '秒'
+        self.text = str
+        console.log(self.text)
+        if (self.count === 0) {
+          clearInterval(ticktock)
+          self.disabled = false
+        }
+      }, 1000)
+      self.count = 60
+      self.text = '获取'
+      // this.disabled = true
+      // this.seconds = 60
+      // var interval = setInterval(() => {
+      //   var seconds = this.seconds
+      //   console.log(seconds)
+      //   if (seconds < 1) {
+      //     seconds = 60
+      //     this.disabled = false
+      //   } else {
+      //     seconds = seconds - 1
+      //   }
+      //   this.seconds = seconds
+      // }, 1000)
+      // setTimeout(function() {
+      //   clearInterval(interval)
+      // }, 60 * 1000)
+
+      // wx.request({
+      //   url: 'http://localhost:8080/code',
+      //   data: {
+      //     phoneNum: this.phoneNum
+      //   },
+      //   success: function(res) {
+      //     console.log(res)
+      //   }
+      // })
+    },
+
     question: function() {
       this.hidden = !this.hidden
     },
@@ -209,6 +314,7 @@ export default class signup extends wepy.page {
       this.hidden = true
     }
   }
+
   onLoad(options) {
     this.hidden = true
     this.type = options.ty

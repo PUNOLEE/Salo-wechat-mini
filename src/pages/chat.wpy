@@ -1,7 +1,20 @@
 <template>
   <view class="chat">
     <scroll-view scroll-y class="chat-content">
+      <block>
+        <view class="chat-left">
+          <view class="chat-box-content">Hi～我是小楚的经纪人，想和她约拍吗？请您填一下下面的表单哦～</view>
+          <image src="../assets/images/intro/robot.svg" class="chat-box-avatar" />
 
+        </view>
+      </block>
+      <block>
+        <view class="chat-right">
+          <image src="" class="chat-box-avatar" style="background-color:black" />
+          <view class="chat-box-content"></view>
+
+        </view>
+      </block>
     </scroll-view>
     <!-- <view class="chat-content">
 
@@ -36,7 +49,18 @@ export default class Chat extends wepy.page {
 <style lang= "less">
 .chat {
   position: relative;
-
+  &-left {
+    margin-top: 36rpx;
+    display: flex;
+    padding: 0 40rpx;
+    justify-content: space-between;
+  }
+  &-right {
+    margin-top: 36rpx;
+    display: flex;
+    padding: 0 40rpx;
+    justify-content: space-between;
+  }
   /* height: 100%; */
   &-content {
     height: 1213rpx;
@@ -59,6 +83,19 @@ export default class Chat extends wepy.page {
     justify-content: space-between;
     align-items: center;
     padding: 0 40rpx;
+    &-content {
+      font-size: 28rpx;
+      width: 400rpx;
+      padding: 66rpx;
+      background-color: #fff;
+      border-radius: 26rpx;
+    }
+    &-avatar {
+      width: 68.8406rpx;
+      height: 68.8406rpx;
+      background: #d8d8d8;
+      border-radius: 50%;
+    }
     &-emoji {
       width: 68.8406rpx;
       height: 68.8406rpx;
